@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,64 +13,69 @@
   }
   
   body {
-    @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300;
+    @apply bg-dark-950 text-slate-200 transition-colors duration-300 font-sans;
+    background-image: 
+      linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
   }
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    @apply w-2;
+    @apply w-1.5;
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-transparent;
+    @apply bg-dark-950;
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 dark:bg-slate-700 rounded-full hover:bg-slate-400 dark:hover:bg-slate-600 transition-colors;
+    @apply bg-matrix/20 rounded-full hover:bg-matrix/40 transition-all duration-300;
   }
 
   /* Selection Color */
   ::selection {
-    @apply bg-primary-500/30 text-primary-900 dark:text-primary-100;
+    @apply bg-matrix/30 text-white;
   }
 }
 
 @layer components {
   .glass {
-    @apply backdrop-blur-md bg-white/70 border border-white/20 dark:bg-slate-900/70 dark:border-white/10 shadow-lg;
+    @apply backdrop-blur-xl bg-dark-900/60 border border-matrix/10 shadow-2xl;
   }
   
   .glass-card {
-    @apply glass rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:bg-white/80 dark:hover:bg-slate-900/80;
+    @apply glass rounded-xl p-6 transition-all duration-500 hover:border-matrix/30 hover:bg-dark-900/80;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
   
   .glass-nav {
-    @apply backdrop-blur-lg bg-white/80 border-b border-white/20 dark:bg-slate-950/80 dark:border-white/5;
+    @apply backdrop-blur-2xl bg-dark-950/80 border-b border-matrix/5;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-matrix to-cyber-blue;
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-full shadow-lg shadow-primary-600/30 hover:shadow-primary-600/40 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+    @apply px-8 py-3 bg-matrix/10 border border-matrix text-matrix font-mono text-sm tracking-widest uppercase hover:bg-matrix hover:text-dark-950 transition-all duration-300 transform active:scale-95 shadow-[0_0_15px_rgba(0,255,65,0.2)] hover:shadow-[0_0_25px_rgba(0,255,65,0.4)];
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 font-medium rounded-full hover:border-slate-300 dark:hover:border-slate-600 shadow-sm hover:shadow transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+    @apply px-8 py-3 bg-dark-900 border border-slate-700 text-slate-300 font-mono text-sm tracking-widest uppercase hover:border-cyber-blue hover:text-cyber-blue transition-all duration-300 transform active:scale-95;
   }
   
   .btn-icon {
-    @apply p-2 rounded-full text-slate-500 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200;
+    @apply p-2 rounded-lg text-slate-400 hover:text-matrix hover:bg-matrix/5 border border-transparent hover:border-matrix/20 transition-all duration-300;
   }
   
   .nav-link {
-    @apply relative text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200;
+    @apply relative text-slate-400 hover:text-matrix font-mono text-sm tracking-wider transition-colors duration-300;
   }
   
   .nav-link::after {
     content: '';
-    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 rounded-full transition-all duration-300;
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix transition-all duration-300 shadow-[0_0_10px_rgba(0,255,65,0.5)];
   }
   
   .nav-link:hover::after {
@@ -77,32 +83,40 @@
   }
 
   .nav-link.active {
-    @apply text-primary-600 dark:text-primary-400;
+    @apply text-matrix font-bold;
   }
   
   .nav-link.active::after {
     @apply w-full;
   }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold mb-8 relative inline-block;
+  }
+
+  .section-title::before {
+    content: '> ';
+    @apply text-matrix font-mono;
+  }
+
+  .code-block {
+    @apply font-mono text-sm bg-dark-850 p-4 rounded-lg border border-matrix/10 overflow-hidden relative;
+  }
+
+  .code-block::after {
+    content: '';
+    @apply absolute top-0 right-0 w-1 h-full bg-matrix/20;
+  }
 }
 
 @layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
   }
   
-  .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-  
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-  
-  .animation-delay-600 {
-    animation-delay: 600ms;
+  .animate-shimmer-custom {
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
   }
 }

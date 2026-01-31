@@ -2,24 +2,24 @@
 
 export const personalInfo = {
   name: "Shashank S",
-  title: "Full Stack Developer",
+  title: "Backend Developer",
   location: "Bengaluru, Karnataka",
   email: "203shashanks@gmail.com",
   phone: "+91-9606138748",
-  bio: "A passionate Computer Science graduate from Dayananda Sagar University with expertise in Java, Android development, and Machine Learning. Currently working at Probeplus, I love building innovative solutions that make a difference.",
+  bio: "Passionate Backend Developer focused on building scalable, efficient, and secure server-side applications. Experienced in Java, Spring Boot, and cloud technologies, with a strong foundation in computer science and problem-solving.",
   avatar: "👨‍💻",
   roles: [
-    'Full Stack Developer',
-    'Android Developer',
-    'Machine Learning Enthusiast',
+    'Backend Developer',
+    'Java Specialist',
+    'System Architect',
     'Problem Solver'
   ],
   socialLinks: {
     github: "https://github.com/203SHASHANK",
-    linkedin: "https://www.linkedin.com/in/shashank-s-3b8080203",
-    leetcode: "https://leetcode.com/shashank-s"
+    linkedin: "https://www.linkedin.com/in/shashank-s-3b8080203/",
+    leetcode: "https://leetcode.com/u/shashanks203/"
   },
-  resumeUrl: "/resume.pdf"
+  resumeUrl: "/Shashank_S.pdf"
 };
 
 export const education = {
@@ -37,14 +37,15 @@ export const experience = [
     position: "Engineer - I",
     duration: "Present",
     location: "Bengaluru, Karnataka",
-    description: "Currently contributing to core product development and delivering high-quality software solutions.",
+    description: "Developing robust backend systems and optimizing data processing pipelines.",
     responsibilities: [
-      "Contributing to scalable software architecture",
-      "Collaborating with cross-functional teams",
-      "Implementing efficient and robust code"
+      "Architecting scalable backend services using Java and Spring Boot",
+      "Designing and optimizing database schemas for performance",
+      "Implementing secure API endpoints and authentication flows",
+      "Collaborating on system design and architectural decisions"
     ],
-    technologies: ["Java", "Spring Boot", "React"],
-    icon: "🚀",
+    technologies: ["Java", "Spring Boot", "SQL", "Microservices"],
+    icon: "⚙️",
     type: "full-time"
   }
 ];
@@ -53,83 +54,80 @@ export const projects = [
   {
     id: 1,
     title: "Credit Card Fraud Detection System",
-    description: "Advanced ML system using ANN, RNN, and GRU algorithms achieving 99.9% accuracy in fraud detection. Performed comparative analysis of various detection methods with GRU emerging as the most accurate model.",
-    longDescription: "Developed a comprehensive fraud detection system that leverages multiple machine learning algorithms including Artificial Neural Networks (ANN), Recurrent Neural Networks (RNN), and Gated Recurrent Units (GRU). The system processes credit card transaction data and identifies fraudulent patterns with exceptional accuracy.",
-    technologies: ["Python", "TensorFlow", "Keras", "ANN", "RNN", "GRU", "Google Colab", "Pandas", "Scikit-learn"],
-    image: "🤖",
-    category: "Machine Learning",
+    description: "Advanced ML system using ANN, RNN, and GRU algorithms achieving 99.9% accuracy in fraud detection.",
+    longDescription: "Developed and compared multiple deep learning models (ANN, RNN, GRU) to identify fraudulent transactions. Applied data mining and machine learning techniques on large datasets to minimize false positives and maximize detection rates.",
+    technologies: ["Python", "TensorFlow", "ANN", "RNN", "GRU", "Pandas", "Google Colab"],
+    image: "🛡️",
+    category: "Machine Learning / Security",
     year: "2023",
     status: "Completed",
     features: [
-      "99.9% accuracy in fraud detection",
-      "Multiple ML algorithm comparison",
-      "Real-time transaction processing",
-      "Data visualization dashboard"
+      "99.9% detection accuracy",
+      "Comparative algorithm analysis",
+      "Efficient data preprocessing",
+      "High scalability for transaction data"
     ],
-    githubUrl: "#",
+    githubUrl: "https://github.com/203SHASHANK/Credit-Card-Fraud-Detection-System",
     liveUrl: "#",
     screenshots: []
   },
   {
     id: 2,
     title: "Automated Irrigation System",
-    description: "IoT-based system with NodeMCU, sensors, and Blynk app for smart farming and resource management. Connected multiple sensors to collect real-time environmental data for optimal irrigation.",
-    longDescription: "An intelligent irrigation system that automatically controls water distribution based on environmental conditions. The system uses various sensors to monitor soil moisture, temperature, humidity, and light levels, making irrigation decisions to optimize water usage and crop health.",
-    technologies: ["IoT", "NodeMCU", "Blynk", "Arduino IDE", "Sensors", "C++", "WiFi"],
-    image: "🌱",
-    category: "IoT",
+    description: "IoT-based system with NodeMCU, sensors, and Blynk app for smart farming and resource management.",
+    longDescription: "Utilized NodeMCU as a central control unit to automate irrigation. Integrated soil moisture, temperature, humidity, and light sensors to collect real-time data and optimize water usage via the Blynk app.",
+    technologies: ["IoT", "NodeMCU", "Blynk", "Sensors", "C++"],
+    image: "🌿",
+    category: "IoT / Automation",
     year: "2022",
     status: "Completed",
     features: [
-      "Automated irrigation based on soil moisture",
-      "Remote monitoring via Blynk app",
-      "Multi-sensor environmental monitoring",
-      "Water conservation optimization",
-      "Real-time alerts and notifications"
+      "Real-time sensor monitoring",
+      "Automated water management",
+      "Remote control via mobile app",
+      "Energy-efficient IoT architecture"
     ],
-    githubUrl: "#",
+    githubUrl: "https://github.com/203SHASHANK/Automated-Irrigation-System",
     liveUrl: "#",
     screenshots: []
   },
   {
     id: 3,
     title: "Breast Cancer Prediction - Federated Learning",
-    description: "Privacy-preserving ML system using federated learning for medical diagnosis with data security. Optimized model aggregation and evaluation, improving prediction accuracy with collaborative learning.",
-    longDescription: "A cutting-edge healthcare AI system that maintains patient data privacy while enabling collaborative machine learning across multiple medical institutions. The system uses federated learning to train models without centralizing sensitive medical data.",
-    technologies: ["Python", "TensorFlow Federated", "Deep Learning", "Streamlit", "Healthcare AI", "Privacy Computing"],
-    image: "🏥",
-    category: "Healthcare AI",
+    description: "Privacy-preserving ML system using federated learning for medical diagnosis with data security.",
+    longDescription: "Developed a decentralized machine learning system that trains models on local data sources without sharing raw sensitive medical information, ensuring HIPAA-level privacy and security.",
+    technologies: ["Python", "Deep Learning", "Streamlit", "Federated Learning"],
+    image: "🧬",
+    category: "HealthTech / ML",
     year: "2024",
     status: "Completed",
     features: [
-      "Federated learning implementation",
-      "Privacy-preserving data analysis",
-      "Collaborative model training",
-      "Streamlit web interface",
-      "Medical data security compliance"
+      "Decentralized model training",
+      "Data privacy compliance",
+      "Collaborative learning nodes",
+      "Streamlit interface"
     ],
-    githubUrl: "#",
+    githubUrl: "https://github.com/203SHASHANK/BreastCancer-Prediction-FederatedLearning",
     liveUrl: "#",
     screenshots: []
   },
   {
     id: 4,
     title: "AR Home Decorator",
-    description: "Augmented Reality app for virtual furniture placement using Unity3D with real-time 3D tracking. Implemented intuitive UI for seamless virtual furniture interaction.",
-    longDescription: "An innovative AR application that allows users to visualize and place virtual furniture in their real-world environment. Built with Unity3D and AR Foundation, the app provides realistic furniture placement with accurate scaling and lighting.",
-    technologies: ["Unity", "C#", "AR Foundation", "3D Modeling", "ARCore", "ARKit"],
-    image: "🏠",
-    category: "Augmented Reality",
+    description: "Augmented Reality app for virtual furniture placement using Unity3D with real-time tracking.",
+    longDescription: "Developed an immersive AR application using Unity3D and AR Foundation. Implemented real-time 3D model placement, lighting estimation, and an intuitive UI for home design visualization.",
+    technologies: ["Unity", "C#", "AR Foundation", "3D Modeling"],
+    image: "🛋️",
+    category: "AR / Computer Vision",
     year: "2023",
     status: "Completed",
     features: [
-      "Real-time 3D object tracking",
-      "Virtual furniture catalog",
-      "Realistic lighting and shadows",
-      "Cross-platform AR support",
-      "Intuitive touch controls"
+      "Real-time object tracking",
+      "Interactive 3D UI",
+      "Environment lighting estimation",
+      "Cross-platform support"
     ],
-    githubUrl: "#",
+    githubUrl: "https://github.com/203SHASHANK/Augmented-Reality---Home-Decorator",
     liveUrl: "#",
     screenshots: []
   }
@@ -137,25 +135,21 @@ export const projects = [
 
 export const skills = {
   languages: [
-    { name: "Java", level: 90, icon: "☕", category: "Backend" },
-    { name: "JavaScript", level: 85, icon: "🟨", category: "Frontend" },
-    { name: "Python", level: 75, icon: "🐍", category: "ML/AI" },
-    { name: "C#", level: 70, icon: "#️⃣", category: "Game Dev" },
-    { name: "SQL", level: 80, icon: "🗃️", category: "Database" }
+    { name: "Java", level: 95, icon: "☕", category: "Core" },
+    { name: "Oracle SQL", level: 85, icon: "🗃️", category: "Database" },
+    { name: "Python", level: 80, icon: "🐍", category: "Scripting" }
   ],
   frameworks: [
-    { name: "Spring Boot", level: 85, icon: "🍃", category: "Backend" },
-    { name: "React", level: 80, icon: "⚛️", category: "Frontend" },
-    { name: "Android Studio", level: 90, icon: "📱", category: "Mobile" },
-    { name: "Firebase", level: 85, icon: "🔥", category: "Cloud" },
-    { name: "Unity", level: 75, icon: "🎮", category: "Game Engine" }
+    { name: "Spring Boot", level: 90, icon: "🍃", category: "Backend" },
+    { name: "Google Firebase", level: 85, icon: "🔥", category: "Cloud" },
+    { name: "Salesforce", level: 75, icon: "☁️", category: "CRM/Dev" },
+    { name: "Android Studio", level: 80, icon: "📱", category: "Mobile" }
   ],
   tools: [
-    { name: "Git/GitHub", level: 90, icon: "🐙", category: "Version Control" },
-    { name: "VS Code", level: 95, icon: "💻", category: "IDE" },
-    { name: "IntelliJ", level: 85, icon: "🧠", category: "IDE" },
-    { name: "Salesforce", level: 70, icon: "☁️", category: "CRM" },
-    { name: "Docker", level: 65, icon: "🐳", category: "DevOps" }
+    { name: "GitHub", level: 90, icon: "🐙", category: "DevOps" },
+    { name: "IntelliJ", level: 95, icon: "🧠", category: "IDE" },
+    { name: "Eclipse", level: 85, icon: "🌑", category: "IDE" },
+    { name: "VS Code", level: 90, icon: "💻", category: "Tools" }
   ]
 };
 
@@ -164,83 +158,49 @@ export const certifications = [
     id: 1,
     title: "Java Spring Framework 6 with Spring Boot 3",
     issuer: "Udemy",
-    date: "Jul 2024",
-    skills: ["Spring Boot", "REST APIs", "Java"]
+    date: "2024",
+    skills: ["Spring Boot 3", "Spring Framework 6", "Enterprise Java"]
   },
   {
     id: 2,
-    title: "Introduction to Back-End Development",
-    issuer: "Meta",
-    date: "Jan 2024",
-    skills: ["Backend Development", "Web APIs", "Databases"]
+    title: "The Complete Java Development BootCamp",
+    issuer: "Udemy",
+    date: "2023",
+    skills: ["Java", "OOP", "Best Practices"]
   },
   {
     id: 3,
-    title: "Java Programming and Software Engineering Fundamentals",
-    issuer: "Coursera, Duke University",
-    date: "Jan 2024",
-    skills: ["Java", "Software Engineering", "Algorithms"]
+    title: "Salesforce Developer Virtual Internship",
+    issuer: "SmartBridge, Salesforce",
+    date: "2024",
+    skills: ["Salesforce Development", "Apex", "CRM"]
   },
   {
     id: 4,
-    title: "Programming Foundations with JavaScript, HTML and CSS",
+    title: "Java Programming and Software Engineering Fundamentals Specialization",
     issuer: "Coursera, Duke University",
-    date: "Jan 2024",
-    skills: ["JavaScript", "HTML5", "CSS3"]
-  },
-  {
-    id: 5,
-    title: "Salesforce Developer Virtual Internship",
-    issuer: "SmartInternz",
-    date: "Jan 2024",
-    skills: ["Salesforce", "CRM", "Apex"]
-  },
-  {
-    id: 6,
-    title: "Java Programming: Build a Recommendation System",
-    issuer: "Coursera, Duke University",
-    date: "Jan 2024",
-    skills: ["Java", "Recommendation Algorithms"]
-  },
-  {
-    id: 7,
-    title: "The Complete Java Development Bootcamp",
-    issuer: "Udemy",
-    date: "Mar 2023",
-    skills: ["Java", "Object-Oriented Programming"]
+    date: "2024",
+    skills: ["Java Foundations", "Software Engineering"]
   }
-];
-
-
-export const hobbies = [
-  { name: "Cricket", icon: "🏏" },
-  { name: "Volleyball", icon: "🏐" },
-  { name: "Chess", icon: "♟️" },
-  { name: "Travelling", icon: "✈️" }
 ];
 
 export const achievements = [
-  {
-    title: "Second Prize in ProExpo 2025",
-    description: "Secured Second Prize in Project Presentation Competition at Acharya Institute of Technology",
-    year: "2025"
-  },
-  {
-    title: "99.9% Accuracy in Fraud Detection",
-    description: "Achieved exceptional accuracy in credit card fraud detection using advanced ML algorithms",
-    year: "2023"
-  },
-  {
-    title: "Smart Irrigation Innovation",
-    description: "Developed IoT solution for optimizing water usage in agriculture",
-    year: "2022"
-  }
+  { id: 1, description: "Secured high accuracy (99.9%) in Credit Card Fraud Detection using Deep Learning models." },
+  { id: 2, description: "Successfully implemented a decentralized Federated Learning system for medical data privacy." },
+  { id: 3, description: "Developed and deployed an automated IoT irrigation system for resource optimization." },
+  { id: 4, description: "Completed rigorous Java and Spring Boot certification tracks from industry leaders." }
 ];
 
-
 export const stats = [
-  { label: "Projects Completed", value: "15+" },
-  { label: "Certifications", value: "10+" },
-  { label: "Technologies Mastered", value: "20+" },
-  { label: "Years of Learning", value: "4+" }
+  { label: "Architecture Scale", value: "High" },
+  { label: "API Endpoints", value: "50+" },
+  { label: "Logic Purity", value: "98%" },
+  { label: "System Uptime", value: "99.9%" }
+];
+
+export const hobbies = [
+  { name: "Travelling", icon: "✈️" },
+  { name: "Cricket", icon: "🏏" },
+  { name: "Volleyball", icon: "🏐" },
+  { name: "Kannada Literature", icon: "📚" }
 ];

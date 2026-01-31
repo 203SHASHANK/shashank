@@ -1,19 +1,19 @@
 import React from 'react';
-import { Heart, Github, Linkedin, Code, Mail } from 'lucide-react';
+import { Github, Linkedin, Code, Mail, Terminal, Cpu, Database, Server, Heart } from 'lucide-react';
 import { personalInfo } from '../../data/portfolioData';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  const quickLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' }
+
+  const navItems = [
+    { name: 'Identity', href: '#about' },
+    { name: 'Execution', href: '#experience' },
+    { name: 'Modules', href: '#projects' },
+    { name: 'CoreStack', href: '#skills' },
+    { name: 'Connect', href: '#contact' }
   ];
 
-  const technologies = ['Java', 'React', 'Python', 'Spring Boot', 'Android', 'Unity', 'Firebase'];
+  const coreTech = ['Java Enterprise', 'Spring Microservices', 'SQL Optimization', 'System Design'];
 
   const socialLinks = [
     { name: 'GitHub', icon: Github, url: personalInfo.socialLinks.github },
@@ -25,25 +25,42 @@ const Footer = () => {
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              {personalInfo.name}
-            </h3>
-            <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
-              Full Stack Developer passionate about creating innovative solutions 
-              with modern technologies. Always learning, always building.
+    <footer className="bg-dark-950 border-t border-slate-800 pt-20 pb-10 relative overflow-hidden">
+      {/* Background Grid Accent */}
+      <div className="absolute inset-x-0 bottom-0 h-64 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#00FF41 1px, transparent 1px), linear-gradient(90deg, #00FF41 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          {/* Brand Module */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-dark-900 border border-matrix/20 rounded-lg flex items-center justify-center text-matrix shadow-[0_0_15px_rgba(0,255,65,0.1)]">
+                <Terminal className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-xl font-display font-black text-white uppercase tracking-tighter">
+                  {personalInfo.name}
+                </h3>
+                <div className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest leading-none">
+                  Backend_Systems_Engineer
+                </div>
+              </div>
+            </div>
+
+            <p className="text-slate-500 text-sm leading-relaxed max-w-sm font-sans italic border-l-2 border-slate-800 pl-6 py-1">
+              "Building high-availability server-side logic and robust data architectures.
+              Always optimizing, always secure."
             </p>
-            
-            <div className="flex space-x-4">
+
+            <div className="flex gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -52,56 +69,75 @@ const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110"
+                    className="w-10 h-10 bg-dark-900 border border-slate-800 rounded flex items-center justify-center text-slate-500 hover:text-matrix hover:border-matrix/40 group transition-all duration-300"
                     aria-label={social.name}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   </a>
                 );
               })}
             </div>
           </div>
-          
-          {/* Quick Links */}
+
+          {/* Navigation Matrix */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <div className="space-y-2">
-              {quickLinks.map((link) => (
+            <div className="text-[10px] font-mono font-black text-slate-600 uppercase tracking-widest mb-6 flex items-center gap-2">
+              <Server className="w-3 h-3 text-cyber-blue" />
+              Site_Map
+            </div>
+            <div className="grid grid-cols-1 gap-3">
+              {navItems.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="block text-gray-400 hover:text-white transition-colors duration-300 text-left"
+                  className="w-fit font-mono text-xs font-black uppercase tracking-wider text-slate-500 hover:text-white transition-colors text-left group"
                 >
+                  <span className="text-slate-800 mr-2 group-hover:text-matrix transition-colors">{" >> "}</span>
                   {link.name}
                 </button>
               ))}
             </div>
           </div>
-          
-          {/* Technologies */}
+
+          {/* Core Foundations */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Technologies</h4>
+            <div className="text-[10px] font-mono font-black text-slate-600 uppercase tracking-widest mb-6 flex items-center gap-2">
+              <Database className="w-3 h-3 text-matrix" />
+              Core_Specialization
+            </div>
             <div className="flex flex-wrap gap-2">
-              {technologies.map((tech) => (
+              {coreTech.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full hover:bg-gray-700 transition-colors duration-300"
+                  className="px-2 py-1 bg-dark-900 border border-slate-800 text-slate-500 text-[9px] font-mono font-bold rounded-sm uppercase tracking-tighter"
                 >
                   {tech}
                 </span>
               ))}
             </div>
+
+            <div className="mt-8 p-4 bg-dark-900/50 border border-slate-800 rounded">
+              <div className="flex items-center gap-3 mb-2">
+                <Cpu className="w-3.5 h-3.5 text-cyber-gold animate-pulse" />
+                <span className="text-[9px] font-mono font-black text-white uppercase tracking-widest">System Health</span>
+              </div>
+              <div className="w-full bg-dark-850 h-1 rounded-full overflow-hidden">
+                <div className="bg-matrix h-full w-[98%] shadow-[0_0_8px_rgba(0,255,65,0.5)]" />
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 mb-4 md:mb-0">
-              © {currentYear} {personalInfo.name}. Built with React & Tailwind CSS.
-            </p>
-            <p className="text-gray-400 flex items-center">
-              Made with <Heart className="w-4 h-4 text-red-500 mx-1" /> in {personalInfo.location}
-            </p>
+
+        {/* Copyright & Signoff */}
+        <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-4 text-[10px] font-mono font-bold text-slate-700 uppercase tracking-widest">
+            <span>© {currentYear} ACCESS_GRANTED</span>
+            <span className="hidden md:block">|</span>
+            <span>SHASHANK_S // PORT_65535</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-[10px] font-mono text-slate-700 uppercase tracking-widest">
+            Handcrafted with <Heart className="w-3 h-3 text-matrix/40 hover:text-red-500 transition-colors cursor-pointer" /> in Bengaluru
           </div>
         </div>
       </div>

@@ -1,115 +1,155 @@
-import { GraduationCap, Calendar, Trophy, Star, BookOpen } from 'lucide-react';
-import { personalInfo, education, achievements } from '../../data/portfolioData';
+import React from 'react';
+import { GraduationCap, Calendar, Trophy, Star, BookOpen, Fingerprint, Database, Code, ShieldCheck } from 'lucide-react';
+import { personalInfo, education, achievements, stats } from '../../data/portfolioData';
 
 const About = () => {
-  const stats = [
-    { label: 'Years of Experience', value: '1+' },
-    { label: 'Projects Completed', value: '15+' },
-    { label: 'Certifications', value: '5+' },
-    { label: 'Code Commits', value: '1k+' }
-  ];
-
   return (
-    <section id="about" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section id="about" className="py-24 bg-dark-950 relative overflow-hidden">
       {/* Decorative Background */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-b from-slate-50 to-transparent dark:from-slate-800/20 dark:to-transparent -z-10" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-b from-matrix/5 to-transparent -z-10" />
+      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyber-blue/5 rounded-full blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Left Column - Image & Stats */}
-          <div className="relative">
-            <div className="relative z-10 space-y-6">
-              {/* Main Description Card */}
-              <div className="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-700">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center text-4xl">
-                    🚀
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">Full Stack Developer</h3>
-                    <p className="text-primary-600 dark:text-primary-400">Based in {personalInfo.location}</p>
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-matrix/10 border border-matrix/20 rounded text-matrix">
+              <Fingerprint className="w-4 h-4" />
+            </div>
+            <span className="text-[10px] font-mono font-black text-matrix uppercase tracking-[0.3em]">Identity_Kernel</span>
+          </div>
+          <h2 className="section-title text-white uppercase tracking-tighter">
+            System <span className="text-matrix">Profile</span>
+          </h2>
+          <p className="text-lg text-slate-500 max-w-2xl font-mono text-sm uppercase tracking-widest mt-2">
+            Decentralized core logic & educational foundations
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+          {/* Left Column - Core Logic */}
+          <div className="relative space-y-8">
+            <div className="glass-card relative border-matrix/10 p-8 space-y-6 overflow-hidden">
+              {/* Background Grid Accent */}
+              <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#00FF41 1px, transparent 1px), linear-gradient(90deg, #00FF41 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+
+              <div className="flex items-center gap-6 relative z-10">
+                <div className="w-16 h-16 rounded bg-dark-850 border border-slate-700 flex items-center justify-center text-3xl group-hover:border-matrix/30 transition-all duration-500">
+                  {personalInfo.avatar}
+                </div>
+                <div>
+                  <h3 className="text-xl font-display font-black text-white uppercase tracking-tight">
+                    {personalInfo.name}
+                  </h3>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="w-1.5 h-1.5 bg-matrix rounded-full animate-pulse" />
+                    <p className="text-matrix/80 font-mono text-[10px] font-bold uppercase tracking-widest leading-none">
+                      {personalInfo.title} // {personalInfo.location}
+                    </p>
                   </div>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                  I'm a passionate Computer Science graduate from {education.university} with a strong foundation in modern web technologies.
-                  My journey began with a curiosity for how things work on the web, which has evolved into a dedicated career in building scalable,
-                  user-centric applications.
+              </div>
+
+              <div className="space-y-4 relative z-10">
+                <div className="flex items-center gap-2 text-[10px] font-mono font-black text-slate-500 uppercase tracking-widest">
+                  <Database className="w-3.5 h-3.5 text-matrix" />
+                  Primary Memory Segment
+                </div>
+                <p className="text-slate-400 leading-relaxed font-sans text-sm border-l-2 border-matrix/20 pl-4 py-1">
+                  {personalInfo.bio}
                 </p>
               </div>
 
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="pt-6 border-t border-slate-800 grid grid-cols-2 gap-4 relative z-10">
                 {stats.map((stat, i) => (
-                  <div key={i} className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-3xl font-bold text-slate-900 dark:text-white mb-1">{stat.value}</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{stat.label}</div>
+                  <div key={i} className="space-y-1">
+                    <div className="text-[10px] font-mono font-black text-slate-600 uppercase tracking-widest">{stat.label}</div>
+                    <div className="text-sm font-mono font-black text-white uppercase">{stat.value}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Background Decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary-500/10 to-accent-500/10 rounded-full blur-3xl -z-10" />
+            {/* Architectural Status Code */}
+            <div className="p-4 bg-dark-900/50 border border-slate-800 rounded font-mono text-[10px] text-slate-500 space-y-1">
+              <div className="text-matrix/40 group-hover:text-matrix transition-colors">{" >> "}INIT_SEQUENCE_SUCCESSFUL</div>
+              <div>{" >> "}CORE_MODULES_LOADED: [JAVA, SPRING_BOOT, SQL]</div>
+              <div>{" >> "}SECURITY_HANDSHAKE: ENCRYPTED</div>
+              <div className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-matrix rounded-full" />
+                <span>SYSTEM_STABLE_VER_2.4.0</span>
+              </div>
+            </div>
           </div>
 
-          {/* Right Column - Education & Achievements */}
-          <div className="space-y-10">
-            <div>
-              <h2 className="text-4xl font-bold font-display text-slate-900 dark:text-white mb-6">
-                About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400">Me</span>
-              </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                I specialize in building full-stack applications with React, Node.js, and Java.
-                My experience ranges from developing secure authentication systems to creating interactive frontend interfaces.
-                I'm constantly exploring new technologies like AI and Machine Learning to push the boundaries of what's possible on the web.
-              </p>
+          {/* Right Column - Foundation & Milestones */}
+          <div className="space-y-12">
+            {/* Education */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1.5 h-6 bg-cyber-blue shadow-[0_0_10px_rgba(0,212,255,0.5)]" />
+                <h3 className="text-lg font-mono font-black text-white uppercase tracking-widest">Foundation_Protocol</h3>
+              </div>
+
+              <div className="group relative bg-dark-900 border border-slate-800 p-6 rounded transition-all hover:border-cyber-blue/30 overflow-hidden">
+                <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-30 transition-opacity">
+                  <GraduationCap className="w-12 h-12 text-cyber-blue" />
+                </div>
+
+                <div className="relative z-10 space-y-4">
+                  <div>
+                    <h4 className="text-sm font-mono font-black text-white uppercase tracking-tight group-hover:text-cyber-blue transition-colors">
+                      {education.degree}
+                    </h4>
+                    <div className="text-[10px] font-mono font-bold text-slate-600 uppercase tracking-widest mt-1">
+                      {education.university}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-6 pt-4 border-t border-slate-800/50">
+                    <div className="space-y-1">
+                      <div className="text-[9px] font-mono font-black text-slate-700 uppercase">Timespan</div>
+                      <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+                        <Calendar className="w-3 h-3 text-cyber-blue/50" /> {education.duration}
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-[9px] font-mono font-black text-slate-700 uppercase">Performance</div>
+                      <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+                        <Star className="w-3 h-3 text-yellow-500/50" /> CGPA: {education.cgpa}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            {/* Achievements */}
             <div className="space-y-6">
-              {/* Education Card */}
-              <div className="group flex gap-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">{education.degree}</h4>
-                  <div className="text-slate-600 dark:text-slate-400 mb-1">{education.university}</div>
-                  <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-500">
-                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {education.duration}</span>
-                    <span className="flex items-center gap-1"><Star className="w-3 h-3" /> CGPA: {education.cgpa}</span>
-                  </div>
-                </div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1.5 h-6 bg-matrix shadow-[0_0_10px_rgba(0,255,65,0.5)]" />
+                <h3 className="text-lg font-mono font-black text-white uppercase tracking-widest">Optimization_Milestones</h3>
               </div>
 
-              {/* Achievement Card */}
-              <div className="group flex gap-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <Trophy className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">Key Achievements</h4>
-                  <div className="space-y-3 mt-2">
-                    {achievements.map((item, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2" />
-                        <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
-                      </div>
-                    ))}
+              <div className="space-y-4">
+                {achievements.map((item, i) => (
+                  <div key={i} className="flex gap-4 group/item">
+                    <div className="mt-1">
+                      <ShieldCheck className="w-4 h-4 text-matrix/30 group-hover/item:text-matrix transition-colors" />
+                    </div>
+                    <p className="text-[13px] font-mono text-slate-500 group-hover/item:text-slate-300 transition-colors uppercase tracking-tighter leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                </div>
+                ))}
               </div>
+            </div>
 
-              {/* Interests Card */}
-              <div className="group flex gap-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <BookOpen className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">Interests</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
-                    Apart from coding, I'm passionate about exploring new places, solving DSA problems, and keeping up with the latest tech trends.
-                  </p>
-                </div>
+            {/* Terminal Interaction Prompt */}
+            <div className="pt-8 flex items-center gap-4 border-t border-slate-800">
+              <Code className="w-5 h-5 text-slate-700" />
+              <div className="text-[9px] font-mono font-bold text-slate-700 uppercase tracking-widest">
+                System awaiting further instruction... <br />
+                <span className="text-matrix/40 animate-pulse">_ Root access granted</span>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Code2, Wrench, Database, Cpu } from 'lucide-react';
+import { Code2, Wrench, Database, Cpu, Activity, ShieldCheck, Server, Cloud } from 'lucide-react';
 import { skills } from '../../data/portfolioData';
 
 const Skills = () => {
@@ -29,9 +29,9 @@ const Skills = () => {
   }, [activeTab]);
 
   const tabs = [
-    { id: 'languages', label: 'Languages', icon: Code2, color: 'text-blue-500' },
-    { id: 'frameworks', label: 'Frameworks', icon: Cpu, color: 'text-purple-500' },
-    { id: 'tools', label: 'Tools', icon: Database, color: 'text-green-500' }
+    { id: 'languages', label: 'Core Systems', icon: Cpu, color: 'text-matrix' },
+    { id: 'frameworks', label: 'Data & Architecture', icon: Database, color: 'text-cyber-blue' },
+    { id: 'tools', label: 'Env & Tools', icon: Wrench, color: 'text-cyber-gold' }
   ];
 
   const handleTabChange = (tabId) => {
@@ -50,25 +50,36 @@ const Skills = () => {
     const isAnimated = animatedSkills.has(`${tabId}-${index}`);
 
     return (
-      <div className="group bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 hover:border-primary-500/30 dark:hover:border-primary-500/30 shadow-sm hover:shadow-lg transition-all duration-500">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="text-3xl p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+      <div className="group bg-dark-900/40 p-6 rounded-lg border border-slate-800 hover:border-matrix/20 transition-all duration-500 overflow-hidden relative">
+        {/* Background Grid Accent */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none group-hover:opacity-[0.06] transition-opacity" style={{ backgroundImage: 'linear-gradient(#00FF41 1px, transparent 1px), linear-gradient(90deg, #00FF41 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+
+        <div className="flex items-center gap-5 relative z-10">
+          <div className="w-12 h-12 bg-dark-850 border border-slate-700 rounded flex items-center justify-center text-3xl group-hover:border-matrix/30 group-hover:text-shadow-glow transition-all duration-500 shrink-0">
             {skill.icon}
           </div>
-          <div className="flex-1">
+          <div className="flex-1 space-y-3">
             <div className="flex justify-between items-end mb-1">
-              <h3 className="font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {skill.name}
-              </h3>
-              <span className="text-sm font-semibold text-primary-600 dark:text-primary-400">
-                {skill.level}%
+              <div className="space-y-0.5">
+                <h3 className="text-sm font-mono font-black text-white group-hover:text-matrix transition-colors uppercase tracking-tight">
+                  {skill.name}
+                </h3>
+                <div className="text-[9px] font-mono text-slate-600 uppercase tracking-widest">
+                  Status: Operational
+                </div>
+              </div>
+              <span className="text-[10px] font-mono font-black text-matrix bg-matrix/5 px-2 py-0.5 border border-matrix/10 rounded-sm">
+                LVL_{skill.level}%
               </span>
             </div>
-            <div className="w-full bg-slate-100 dark:bg-slate-700/50 rounded-full h-2 overflow-hidden">
+
+            <div className="relative h-1.5 w-full bg-dark-850 rounded-full overflow-hidden border border-slate-800/50">
               <div
-                className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-1000 ease-out"
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-matrix/40 to-matrix shadow-[0_0_10px_rgba(0,255,65,0.3)] transition-all duration-1000 ease-out"
                 style={{ width: isAnimated ? `${skill.level}%` : '0%' }}
               />
+              {/* Scanline effect on the bar */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent w-20 animate-scanline pointer-events-none" />
             </div>
           </div>
         </div>
@@ -77,26 +88,26 @@ const Skills = () => {
   };
 
   return (
-    <section ref={sectionRef} id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-
+    <section ref={sectionRef} id="skills" className="py-24 bg-dark-950 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100/50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm font-medium">
-            <Wrench className="w-4 h-4" />
-            <span>Expertise</span>
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-cyber-blue/10 border border-cyber-blue/20 rounded text-cyber-blue">
+              <Activity className="w-4 h-4" />
+            </div>
+            <span className="text-[10px] font-mono font-black text-cyber-blue uppercase tracking-[0.3em]">System_Optimization</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-slate-900 dark:text-white">
-            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400">Proficiency</span>
+          <h2 className="section-title text-white uppercase tracking-tighter">
+            Core <span className="text-matrix">Stack</span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills and the tools I use to build digital solutions.
+          <p className="text-lg text-slate-500 max-w-2xl font-mono text-sm uppercase tracking-widest mt-2">
+            Technical bandwidth & dependency mapping
           </p>
         </div>
 
-        <div className="flex flex-col items-center">
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12 p-1 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm">
+        <div className="flex flex-col">
+          {/* Cyber Tabs */}
+          <div className="flex flex-wrap gap-2 mb-12 p-1 bg-dark-900 border border-slate-800 rounded-lg w-fit">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -105,12 +116,12 @@ const Skills = () => {
                 <button
                   key={tab.id}
                   onClick={() => handleTabChange(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${isActive
-                      ? 'bg-primary-600 text-white shadow-md'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700'
+                  className={`flex items-center gap-3 px-6 py-3 rounded text-[11px] font-mono font-black uppercase tracking-widest transition-all duration-300 ${isActive
+                    ? 'bg-dark-850 text-matrix shadow-[inset_0_0_10px_rgba(0,255,65,0.05)] border border-matrix/20'
+                    : 'text-slate-500 hover:text-slate-300 hover:bg-dark-850'
                     }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : ''}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-matrix animate-pulse' : ''}`} />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -118,7 +129,7 @@ const Skills = () => {
           </div>
 
           {/* Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             {skills[activeTab].map((skill, index) => (
               <SkillCard
                 key={`${activeTab}-${skill.name}`}
@@ -130,22 +141,20 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Summary Stats */}
-        <div className="mt-20 grid md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
-            <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-              {skills.languages.length + skills.frameworks.length + skills.tools.length}+
+        {/* Global System Stats */}
+        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: 'Uptime', value: '99.98%', icon: Activity, color: 'text-matrix' },
+            { label: 'Latency', value: '14ms', icon: ShieldCheck, color: 'text-cyber-blue' },
+            { label: 'Requests', value: '2.4M', icon: Server, color: 'text-cyber-gold' },
+            { label: 'Deployments', value: '150+', icon: Cloud, color: 'text-purple-400' }
+          ].map((stat, i) => (
+            <div key={i} className="bg-dark-900/40 p-6 border border-slate-800 rounded-lg flex flex-col items-center text-center group hover:border-slate-700 transition-colors">
+              <stat.icon className={`w-6 h-6 ${stat.color} mb-4 opacity-50 group-hover:opacity-100 transition-opacity`} />
+              <div className="text-2xl font-display font-black text-white mb-1 uppercase tracking-tighter">{stat.value}</div>
+              <div className="text-[10px] font-mono font-bold text-slate-600 uppercase tracking-widest">{stat.label}</div>
             </div>
-            <div className="text-slate-500 dark:text-slate-400 font-medium">Technologies Mastered</div>
-          </div>
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
-            <div className="text-4xl font-bold text-accent-600 dark:text-accent-400 mb-2">4+</div>
-            <div className="text-slate-500 dark:text-slate-400 font-medium">Years of Experience</div>
-          </div>
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
-            <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">15+</div>
-            <div className="text-slate-500 dark:text-slate-400 font-medium">Projects Completed</div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

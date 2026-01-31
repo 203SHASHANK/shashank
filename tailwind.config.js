@@ -53,6 +53,22 @@ module.exports = {
         }
       },
       colors: {
+        dark: {
+          950: '#050505',
+          900: '#0a0a0a',
+          850: '#111111',
+          800: '#1a1a1a',
+        },
+        matrix: {
+          DEFAULT: '#00FF41',
+          500: '#00FF41',
+          400: '#4DFF7D',
+          600: '#00CC33',
+        },
+        cyber: {
+          blue: '#00D4FF',
+          gold: '#FFD700',
+        },
         slate: {
           850: '#151e2e',
           950: '#020617',
@@ -63,8 +79,8 @@ module.exports = {
           200: '#c7d2fe',
           300: '#a5b4fc',
           400: '#818cf8',
-          500: '#6366f1', // Indigo 500
-          600: '#4f46e5',
+          500: '#00FF41', // Matrix Green
+          600: '#00CC33',
           700: '#4338ca',
           800: '#3730a3',
           900: '#312e81',
@@ -75,7 +91,7 @@ module.exports = {
           100: '#e0f2fe',
           200: '#bae6fd',
           300: '#7dd3fc',
-          400: '#38bdf8', // Sky 400
+          400: '#00D4FF', // Cyber Blue
           500: '#0ea5e9',
           600: '#0284c7',
         }
@@ -83,6 +99,7 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Outfit', 'Inter', 'sans-serif'],
+        mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
