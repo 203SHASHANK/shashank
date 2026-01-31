@@ -114,8 +114,8 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left Column: Connection Info & Social Nodes */}
-          <div className="space-y-8">
-            <div className="glass-card relative border-matrix/10 p-8 overflow-hidden">
+          <div className="space-y-8 animate-fade-in-up">
+            <div className="glass-card relative border-matrix/10 p-8 overflow-hidden hover-lift">
               {/* Background Grid Accent */}
               <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#00FF41 1px, transparent 1px), linear-gradient(90deg, #00FF41 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 
@@ -128,7 +128,7 @@ const Contact = () => {
                   const Icon = method.icon;
                   return (
                     <div key={index} className="flex items-start gap-6 group">
-                      <div className={`p-4 bg-dark-900 border border-slate-800 rounded flex items-center justify-center ${method.color} shadow-sm group-hover:border-matrix/30 transition-all duration-500`}>
+                      <div className={`p-4 bg-dark-900 border border-slate-800 rounded flex items-center justify-center ${method.color} shadow-sm group-hover:border-matrix/30 group-hover:scale-110 transition-all duration-500`}>
                         <Icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -168,7 +168,7 @@ const Contact = () => {
 
             {/* Security Notice */}
             <div className="p-6 bg-dark-900/50 border border-slate-800 rounded flex items-center gap-5 group">
-              <div className="w-12 h-12 rounded-full border border-yellow-500/20 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-full border border-yellow-500/20 flex items-center justify-center shrink-0 animate-breathing-glow">
                 <ShieldAlert className="w-6 h-6 text-yellow-500 animate-pulse" />
               </div>
               <div>
@@ -182,10 +182,10 @@ const Contact = () => {
           </div>
 
           {/* Right Column: Transmission Interface */}
-          <div className="relative group/form">
+          <div className="relative group/form animate-fade-in-up delay-200">
             <div className="absolute inset-0 bg-matrix/20 rounded-lg blur-2xl opacity-0 group-hover/form:opacity-20 transition-opacity duration-1000" />
 
-            <div className="relative bg-dark-900/40 border border-slate-800 p-8 rounded-lg overflow-hidden backdrop-blur-sm">
+            <div className="relative bg-dark-900/40 border border-slate-800 p-8 rounded-lg overflow-hidden backdrop-blur-sm hover-lift">
               {/* Terminal Top Bar */}
               <div className="absolute top-0 left-0 right-0 h-8 bg-dark-850 border-b border-slate-800 flex items-center px-4 gap-2">
                 <div className="w-2 h-2 rounded-full bg-red-500/50" />
@@ -230,7 +230,7 @@ const Contact = () => {
                         name="from_name"
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
-                        className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 focus:shadow-[0_0_15px_rgba(0,255,65,0.1)] outline-none transition-all"
                         placeholder="[SOURCE_NAME]"
                         required
                       />
@@ -242,7 +242,7 @@ const Contact = () => {
                         name="from_email"
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 focus:shadow-[0_0_15px_rgba(0,255,65,0.1)] outline-none transition-all"
                         placeholder="user@remote_host.net"
                         required
                       />
@@ -256,7 +256,7 @@ const Contact = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={(e) => handleInputChange('subject', e.target.value)}
-                      className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 focus:shadow-[0_0_15px_rgba(0,255,65,0.1)] outline-none transition-all"
                       placeholder="INQUIRY_TYPE_RECRUITMENT"
                       required
                     />
@@ -269,7 +269,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
                       rows={5}
-                      className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 bg-dark-950 border border-slate-800 rounded font-mono text-sm text-white focus:border-matrix/40 focus:shadow-[0_0_15px_rgba(0,255,65,0.1)] outline-none transition-all resize-none"
                       placeholder="Enter raw requirements or greetings..."
                       required
                     />

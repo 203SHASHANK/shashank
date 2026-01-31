@@ -50,12 +50,12 @@ const Skills = () => {
     const isAnimated = animatedSkills.has(`${tabId}-${index}`);
 
     return (
-      <div className="group bg-dark-900/40 p-6 rounded-lg border border-slate-800 hover:border-matrix/20 transition-all duration-500 overflow-hidden relative">
+      <div className="group bg-dark-900/40 p-6 rounded-lg border border-slate-800 hover:border-matrix/20 transition-all duration-500 overflow-hidden relative hover-lift hover:shadow-[0_0_20px_rgba(0,255,65,0.1)]">
         {/* Background Grid Accent */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none group-hover:opacity-[0.06] transition-opacity" style={{ backgroundImage: 'linear-gradient(#00FF41 1px, transparent 1px), linear-gradient(90deg, #00FF41 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
 
         <div className="flex items-center gap-5 relative z-10">
-          <div className="w-12 h-12 bg-dark-850 border border-slate-700 rounded flex items-center justify-center text-3xl group-hover:border-matrix/30 group-hover:text-shadow-glow transition-all duration-500 shrink-0">
+          <div className="w-12 h-12 bg-dark-850 border border-slate-700 rounded flex items-center justify-center text-3xl group-hover:border-matrix/30 group-hover:text-shadow-glow group-hover:scale-110 transition-all duration-500 shrink-0">
             {skill.icon}
           </div>
           <div className="flex-1 space-y-3">

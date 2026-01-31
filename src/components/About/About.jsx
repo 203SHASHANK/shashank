@@ -27,8 +27,8 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
           {/* Left Column - Core Logic */}
-          <div className="relative space-y-8">
-            <div className="glass-card relative border-matrix/10 p-8 space-y-6 overflow-hidden">
+          <div className="relative space-y-8 animate-fade-in-up">
+            <div className="glass-card relative border-matrix/10 p-8 space-y-6 overflow-hidden hover-lift">
               {/* Background Grid Accent */}
               <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#00FF41 1px, transparent 1px), linear-gradient(90deg, #00FF41 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 
@@ -41,7 +41,7 @@ const About = () => {
                     {personalInfo.name}
                   </h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="w-1.5 h-1.5 bg-matrix rounded-full animate-pulse" />
+                    <span className="w-1.5 h-1.5 bg-matrix rounded-full animate-breathing-glow" />
                     <p className="text-matrix/80 font-mono text-[10px] font-bold uppercase tracking-widest leading-none">
                       {personalInfo.title} // {personalInfo.location}
                     </p>
@@ -82,7 +82,7 @@ const About = () => {
           </div>
 
           {/* Right Column - Foundation & Milestones */}
-          <div className="space-y-12">
+          <div className="space-y-12 animate-fade-in-up delay-200">
             {/* Education */}
             <div className="space-y-6">
               <div className="flex items-center gap-3 mb-6">
@@ -90,7 +90,7 @@ const About = () => {
                 <h3 className="text-lg font-mono font-black text-white uppercase tracking-widest">Foundation_Protocol</h3>
               </div>
 
-              <div className="group relative bg-dark-900 border border-slate-800 p-6 rounded transition-all hover:border-cyber-blue/30 overflow-hidden">
+              <div className="group relative bg-dark-900 border border-slate-800 p-6 rounded transition-all hover:border-cyber-blue/30 overflow-hidden hover-lift hover:shadow-[0_0_20px_rgba(0,212,255,0.1)]">
                 <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-30 transition-opacity">
                   <GraduationCap className="w-12 h-12 text-cyber-blue" />
                 </div>

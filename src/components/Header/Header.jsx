@@ -44,7 +44,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 animate-fade-in-down ${isScrolled || isMobileMenuOpen
         ? 'bg-dark-950/90 backdrop-blur-md py-3 border-b border-matrix/10'
         : 'bg-transparent py-6'
         }`}
@@ -57,8 +57,8 @@ const Header = () => {
             className="cursor-pointer group flex items-center gap-3"
           >
             <div className="relative w-10 h-10 bg-dark-900 border border-slate-700 rounded flex items-center justify-center text-matrix group-hover:border-matrix/50 group-hover:shadow-[0_0_15px_rgba(0,255,65,0.2)] transition-all duration-300">
-              <Terminal className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-matrix rounded-full animate-pulse shadow-[0_0_8px_rgba(0,255,65,0.8)]" />
+              <Terminal className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-matrix rounded-full animate-breathing-glow" />
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-mono font-black text-white uppercase tracking-tighter group-hover:text-matrix transition-colors">
@@ -86,7 +86,7 @@ const Header = () => {
             </div>
 
             {/* System Status Indicator */}
-            <div className="ml-6 px-4 py-2 bg-dark-900 border border-slate-800 rounded flex items-center gap-3">
+            <div className="ml-6 px-4 py-2 bg-dark-900 border border-slate-800 rounded flex items-center gap-3 hover:border-matrix/30 transition-all duration-300">
               <Activity className="w-3.5 h-3.5 text-matrix animate-pulse" />
               <div className="text-[9px] font-mono font-black text-slate-500 uppercase tracking-widest">
                 System: <span className="text-matrix">Active</span>
@@ -97,7 +97,7 @@ const Header = () => {
           {/* Mobile Actions */}
           <div className="flex md:hidden items-center gap-4">
             <div className="px-3 py-1.5 bg-dark-900 border border-slate-800 rounded flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-matrix rounded-full animate-pulse" />
+              <div className="w-1.5 h-1.5 bg-matrix rounded-full animate-breathing-glow" />
               <span className="text-[10px] font-mono font-black text-slate-500 uppercase">Online</span>
             </div>
 

@@ -11,7 +11,7 @@ const Projects = () => {
     : projects.filter(project => project.category === selectedCategory);
 
   const ProjectCard = ({ project }) => (
-    <div className="group relative bg-dark-900 border border-slate-800 rounded-lg overflow-hidden transition-all duration-500 hover:border-matrix/40 hover:shadow-[0_0_30px_rgba(0,255,65,0.1)] h-full flex flex-col">
+    <div className="group relative bg-dark-900 border border-slate-800 rounded-lg overflow-hidden transition-all duration-500 hover:border-matrix/40 hover:shadow-[0_0_30px_rgba(0,255,65,0.1)] hover-lift h-full flex flex-col">
       {/* Module ID Tag */}
       <div className="absolute top-0 right-0 p-4 z-20">
         <div className="text-[10px] font-mono font-bold text-slate-700 uppercase tracking-widest bg-dark-950 px-2 py-1 border border-slate-800 rounded">
@@ -24,7 +24,7 @@ const Projects = () => {
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none group-hover:opacity-[0.05] transition-opacity" style={{ backgroundImage: 'linear-gradient(#00FF41 1px, transparent 1px), linear-gradient(90deg, #00FF41 1px, transparent 1px)', backgroundSize: '15px 15px' }} />
 
         <div className="flex justify-between items-start mb-8 relative z-10">
-          <div className="w-14 h-14 bg-dark-850 border border-slate-700 rounded flex items-center justify-center text-3xl shadow-inner group-hover:border-matrix/30 group-hover:text-shadow-glow transition-all duration-500">
+          <div className="w-14 h-14 bg-dark-850 border border-slate-700 rounded flex items-center justify-center text-3xl shadow-inner group-hover:border-matrix/30 group-hover:text-shadow-glow group-hover:scale-110 transition-all duration-500">
             {project.image}
           </div>
           <div className="flex gap-3">
@@ -53,7 +53,7 @@ const Projects = () => {
 
         <div className="mb-4 relative z-10">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-1.5 h-1.5 bg-matrix rounded-full animate-pulse" />
+            <div className="w-1.5 h-1.5 bg-matrix rounded-full animate-breathing-glow" />
             <div className="text-[10px] font-mono font-black tracking-widest text-matrix/60 uppercase">
               {project.category}
             </div>

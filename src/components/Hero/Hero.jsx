@@ -110,8 +110,12 @@ const Hero = () => {
 
             <div className="flex gap-4 pt-6">
               <SocialLink href={personalInfo.socialLinks.github} icon={Github} label="GitHub" />
-              <SocialLink href={personalInfo.socialLinks.linkedin} icon={Linkedin} label="LinkedIn" />
-              <SocialLink href={personalInfo.socialLinks.leetcode} icon={Code} label="LeetCode" />
+              <div className="animate-fade-in-up delay-100">
+                <SocialLink href={personalInfo.socialLinks.linkedin} icon={Linkedin} label="LinkedIn" />
+              </div>
+              <div className="animate-fade-in-up delay-200">
+                <SocialLink href={personalInfo.socialLinks.leetcode} icon={Code} label="LeetCode" />
+              </div>
             </div>
           </div>
 
@@ -122,7 +126,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-matrix/10 blur-[100px] animate-pulse-slow -z-10" />
 
               {/* Terminal Window */}
-              <div className="bg-dark-900/90 rounded-lg shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] border border-matrix/20 overflow-hidden font-mono text-[13px] leading-relaxed backdrop-blur-md">
+              <div className="bg-dark-900/90 rounded-lg shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] border border-matrix/20 overflow-hidden font-mono text-[13px] leading-relaxed backdrop-blur-md relative scanline-overlay">
                 {/* Terminal Header */}
                 <div className="bg-dark-800 px-4 py-2 flex items-center justify-between border-b border-matrix/10">
                   <div className="flex gap-1.5">
@@ -213,7 +217,7 @@ const Hero = () => {
               <div className="absolute -right-8 -bottom-8 opacity-10 animate-float">
                 <Database className="w-40 h-40 text-matrix" />
               </div>
-              <div className="absolute -left-12 top-1/4 opacity-10 animate-float animation-delay-600">
+              <div className="absolute -left-12 top-1/4 opacity-10 animate-float delay-600">
                 <Server className="w-24 h-24 text-cyber-blue" />
               </div>
             </div>
