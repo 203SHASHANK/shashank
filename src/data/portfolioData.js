@@ -228,8 +228,8 @@ export const stats = [
 ];
 
 export const hobbies = [
-  { name: "Travelling", icon: "✈️" },
-  { name: "Cricket", icon: "🏏" },
-  { name: "Volleyball", icon: "🏐" },
-  { name: "Kannada Literature", icon: "📚" }
+  { name: "Travelling" },
+  { name: "Cricket" },
+  { name: "Volleyball" },
+  { name: "Kannada Literature" }
 ];

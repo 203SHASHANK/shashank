@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity } from 'lucide-react';
+import { Activity, Bus, Ticket, BookOpen, Trophy } from 'lucide-react';
 import { hobbies } from '../../data/portfolioData';
 
 // Import Animation Components
@@ -12,6 +12,41 @@ import TravelAnimation from './animations/TravelAnimation';
 const Hobbies = () => {
     const [selectedHobby, setSelectedHobby] = useState(hobbies[0]);
     const [animationKey, setAnimationKey] = useState(0);
+
+    // Custom SVG Icons for better relatability while maintaining aesthetic
+    // Custom SVG Icons for better relatability while maintaining aesthetic
+    const CricketIcon = ({ className }) => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+            {/* Bat Shape: Distinct Handle and Blade */}
+            <path d="M14 6L18 2" /> {/* Handle Top-Right */}
+            <path d="M12 8L16 4" /> {/* Handle Bottom-Left to Spine */}
+            <path d="M14 6 L12 8 L4 16 C3 17 3 19 4 20 C5 21 7 21 8 20 L16 12 L18 10 L14 6" /> {/* Main Blade Body */}
+            <path d="M6 18L14 10" /> {/* Spine Line */}
+            {/* Ball */}
+            <circle cx="19" cy="19" r="3" />
+            <path d="M19 16a3 3 0 0 1 0 6" /> {/* Seam */}
+        </svg>
+    );
+
+    const VolleyballIcon = ({ className }) => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 12a10 10 0 0 0 8.7 5" />
+            <path d="M8 12a10 10 0 0 0-4 6" />
+            <path d="M12 2v20" />
+            <path d="M2 12h20" />
+        </svg>
+    );
+
+    const getHobbyIcon = (name) => {
+        switch (name) {
+            case 'Travelling': return <Bus className="w-8 h-8" />;
+            case 'Cricket': return <CricketIcon className="w-8 h-8" />;
+            case 'Volleyball': return <VolleyballIcon className="w-8 h-8" />;
+            case 'Kannada Literature': return <BookOpen className="w-8 h-8" />;
+            default: return <Activity className="w-8 h-8" />;
+        }
+    };
 
     const replayAnimation = () => {
         setAnimationKey(prev => prev + 1);
@@ -89,7 +124,9 @@ const Hobbies = () => {
                                 }`}
                         >
                             <div className="absolute top-0 right-0 w-8 h-8 bg-matrix/5 rotate-45 translate-x-4 -translate-y-4 group-hover:bg-matrix/10 transition-colors" />
-                            <span className="text-4xl group-hover:scale-125 transition-transform duration-500 block relative z-10">{hobby.icon}</span>
+                            <span className="text-slate-400 group-hover:text-matrix group-hover:scale-110 transition-all duration-500 block relative z-10">
+                                {getHobbyIcon(hobby.name)}
+                            </span>
                             <span className={`font-mono font-bold text-[10px] uppercase tracking-[0.2em] relative z-10 transition-colors duration-500 ${selectedHobby.name === hobby.name ? 'text-matrix' : 'text-slate-500 group-hover:text-slate-300'}`}>
                                 {hobby.name}
                             </span>

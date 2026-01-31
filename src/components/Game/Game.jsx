@@ -131,8 +131,17 @@ const Game = () => {
         setTimeout(() => setInvalidMove(null), 300);
     };
 
+    const [buttonState, setButtonState] = useState('idle'); // idle, animating
+
     // -- INTERACTION HANDLERS --
-    const startGame = () => {
+    const startGame = async () => {
+        if (buttonState === 'animating') return;
+
+        // Trigger "Crazy" Animation
+        setButtonState('animating');
+        await new Promise(r => setTimeout(r, 800)); // Wait for animation
+        setButtonState('idle');
+
         setGameState('PLAYING');
         generatePuzzle(); // Regenerates the SAME puzzle for today
         setStartTime(Date.now());
@@ -299,12 +308,30 @@ const Game = () => {
                                         )}
                                         <button
                                             onClick={startGame}
-                                            className="group relative px-10 py-5 bg-matrix hover:bg-white text-dark-950 font-black uppercase tracking-widest rounded-sm transition-all duration-300 transform hover:scale-105 active:scale-95"
+                                            className={`relative group overflow-hidden px-12 py-6 bg-dark-900 border border-matrix/30 text-matrix font-black uppercase tracking-[0.2em] transition-all duration-300 ${buttonState === 'animating' ? 'scale-110 bg-matrix text-black shadow-[0_0_50px_rgba(0,255,65,0.8)]' : 'hover:bg-matrix/10 hover:border-matrix hover:shadow-[0_0_30px_rgba(0,255,65,0.2)]'}`}
                                         >
-                                            <div className="flex items-center gap-3 text-lg">
+                                            {/* Corner Accents */}
+                                            <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-matrix/50 group-hover:border-matrix transition-colors" />
+                                            <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-matrix/50 group-hover:border-matrix transition-colors" />
+                                            <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-matrix/50 group-hover:border-matrix transition-colors" />
+                                            <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-matrix/50 group-hover:border-matrix transition-colors" />
+
+                                            {/* Background Scanline */}
+                                            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,255,65,0.05)_50%,transparent_75%)] bg-[size:10px_10px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                            <div className={`flex items-center gap-4 text-xl z-10 relative ${buttonState === 'animating' ? 'animate-pulse' : ''}`}>
                                                 {gameState === 'IDLE' ? <Play className="w-6 h-6 fill-current" /> : <RotateCcw className="w-6 h-6" />}
-                                                <span>{gameState === 'IDLE' ? 'START DAILY CHALLENGE' : 'RETRY DAILY'}</span>
+                                                <span>{gameState === 'IDLE' ? 'INITIALIZE_PROTOCOL' : 'RETRY_SEQUENCE'}</span>
                                             </div>
+
+                                            {/* Glitch/Crazy Effect Layers */}
+                                            {buttonState === 'animating' && (
+                                                <>
+                                                    <div className="absolute inset-0 bg-white mix-blend-difference animate-ping opacity-50" />
+                                                    <div className="absolute top-0 left-0 w-full h-[2px] bg-red-500 animate-[spin_0.1s_linear_infinite]" />
+                                                    <div className="absolute inset-0 border-4 border-red-500 opacity-50 blur-sm scale-110" />
+                                                </>
+                                            )}
                                         </button>
                                     </div>
                                 </div>
