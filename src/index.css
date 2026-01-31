@@ -15,8 +15,8 @@
   body {
     @apply bg-dark-950 text-slate-200 transition-colors duration-300 font-sans;
     background-image:
-      linear-gradient(rgba(0,255,65,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,255,65,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
@@ -46,7 +46,7 @@
 
   .glass-card {
     @apply glass rounded-xl p-6 transition-all duration-500 hover:border-matrix/30 hover:bg-dark-900/80;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
   .glass-nav {
@@ -58,7 +58,12 @@
   }
 
   .btn-primary {
-    @apply px-8 py-3 bg-matrix/10 border border-matrix text-matrix font-mono text-sm tracking-widest uppercase hover:bg-matrix hover:text-dark-950 transition-all duration-300 transform active:scale-95 shadow-[0_0_15px_rgba(0,255,65,0.2)] hover:shadow-[0_0_25px_rgba(0,255,65,0.4)];
+    @apply px-8 py-3 bg-matrix/10 border border-matrix text-matrix font-mono text-sm tracking-widest uppercase hover:bg-matrix hover:text-dark-950 transition-all duration-300 transform active:scale-95;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
   }
 
   .btn-secondary {
@@ -75,7 +80,8 @@
 
   .nav-link::after {
     content: '';
-    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix transition-all duration-300 shadow-[0_0_10px_rgba(0,255,65,0.5)];
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix transition-all duration-300;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
   }
 
   .nav-link:hover::after {
@@ -111,11 +117,11 @@
 
 @layer utilities {
   .text-shadow-glow {
-    text-shadow: 0 0 10px rgba(0,255,65,0.5);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
   }
 
   .animate-shimmer-custom {
-    background: linear-gradient(90deg, transparent, rgba(0,255,65,0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
   }
@@ -124,11 +130,11 @@
 
     0%,
     100% {
-      text-shadow: 0 0 10px rgba(0,255,65,0.5), 0 0 20px rgba(0,255,65,0.3), 0 0 30px rgba(0,255,65,0.1);
+      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3), 0 0 30px rgba(0, 255, 65, 0.1);
     }
 
     50% {
-      text-shadow: 0 0 15px rgba(0,255,65,0.8), 0 0 30px rgba(0,255,65,0.5), 0 0 40px rgba(0,255,65,0.3);
+      text-shadow: 0 0 15px rgba(0, 255, 65, 0.8), 0 0 30px rgba(0, 255, 65, 0.5), 0 0 40px rgba(0, 255, 65, 0.3);
     }
   }
 
@@ -175,8 +181,8 @@
   .bg-grid-pattern {
     background-size: 50px 50px;
     background-image:
-      linear-gradient(to right, rgba(0,255,65,0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0,255,65,0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
     transform-origin: top center;
   }
 
@@ -304,7 +310,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(to bottom, transparent, rgba(0,255,65,0.3), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 65, 0.3), transparent);
     animation: scanline 8s linear infinite;
     pointer-events: none;
   }
@@ -318,5 +324,29 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  @keyframes shake {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    25% {
+      transform: translateX(-5px);
+    }
+
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  .animate-shake {
+    animation: shake 0.2s ease-in-out;
+  }
+
+  .animate-scanline {
+    animation: scanline 8s linear infinite;
   }
 }

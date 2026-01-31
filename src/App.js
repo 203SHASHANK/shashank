@@ -10,6 +10,7 @@ import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
 import Hobbies from './components/Hobbies/Hobbies';
+import Game from './components/Game/Game';
 
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
@@ -44,6 +45,7 @@ function App() {
         <Projects />
         <Skills />
         <Hobbies />
+        <Game />
 
         <Contact />
       </main>
