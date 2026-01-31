@@ -140,7 +140,7 @@ const Hero = () => {
                 </div>
 
                 {/* Terminal Body */}
-                <div className="p-6 text-slate-400 space-y-5 h-[420px] overflow-hidden">
+                <div className="p-6 text-slate-400 space-y-5 h-[460px] overflow-hidden">
                   <div className="space-y-1">
                     <div className="text-matrix opacity-80 flex items-center gap-2">
                       <span className="text-cyber-blue font-bold">»</span> System initialization successful.
