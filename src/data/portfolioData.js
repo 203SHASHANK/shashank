@@ -19,7 +19,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/shashank-s-3b8080203/",
     leetcode: "https://leetcode.com/u/shashanks203/"
   },
-  resumeUrl: "/resume.pdf"
+  resumeUrl: "Shashank_S.pdf"
 };
 
 export const education = {
