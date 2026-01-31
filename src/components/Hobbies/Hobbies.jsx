@@ -6,7 +6,7 @@ import { hobbies } from '../../data/portfolioData';
 // Import Animation Components
 import CricketAnimation from './animations/CricketAnimation';
 import VolleyballAnimation from './animations/VolleyballAnimation';
-import ChessAnimation from './animations/ChessAnimation';
+import KannadaLiteratureAnimation from './animations/KannadaLiteratureAnimation';
 import TravelAnimation from './animations/TravelAnimation';
 
 const Hobbies = () => {
@@ -57,7 +57,7 @@ const Hobbies = () => {
                         >
                             {selectedHobby.name === 'Cricket' && <CricketAnimation />}
                             {selectedHobby.name === 'Volleyball' && <VolleyballAnimation />}
-                            {selectedHobby.name === 'Chess' && <ChessAnimation />}
+                            {selectedHobby.name === 'Kannada Literature' && <KannadaLiteratureAnimation />}
                             {selectedHobby.name === 'Travelling' && <TravelAnimation />}
                         </motion.div>
                     </AnimatePresence>
@@ -78,7 +78,7 @@ const Hobbies = () => {
                 </div>
 
                 {/* Hobbies Selector */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     {hobbies.map((hobby) => (
                         <button
                             key={hobby.name}

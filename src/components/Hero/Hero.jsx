@@ -203,10 +203,11 @@ const Hero = () => {
                     <div className="text-cyber-blue">{`}`}</div>
                   </div>
 
-                  <div className="border-t border-matrix/5 pt-4 flex items-center justify-between text-matrix/40 font-bold uppercase tracking-widest text-[10px]">
+                  <div className="border-t border-matrix/5 pt-3 md:pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 text-matrix/40 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">
                     <div className="flex items-center gap-2">
                       <Activity className="w-3 h-3 animate-pulse" />
-                      Status: Active
+                      <span className="hidden sm:inline">Status: Active</span>
+                      <span className="sm:hidden">Active</span>
                     </div>
                     <div>Ver: 2026.1.31</div>
                   </div>
@@ -214,7 +215,7 @@ const Hero = () => {
               </div>
 
               {/* Decorative Tech Elements */}
-              <div className="absolute -right-8 -bottom-8 opacity-10 animate-float">
+              <div className="absolute -right-8 -bottom-16 md:-bottom-8 opacity-10 animate-float">
                 <Database className="w-40 h-40 text-matrix" />
               </div>
               <div className="absolute -left-12 top-1/4 opacity-10 animate-float delay-600">

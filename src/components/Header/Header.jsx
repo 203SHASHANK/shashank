@@ -71,7 +71,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation - Advanced Terminal Style */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-2 lg:gap-6">
             <div className="flex bg-dark-900/50 backdrop-blur-sm rounded-lg p-1 border border-slate-800 shadow-xl overflow-hidden">
               {navItems.map((item) => (
                 <button
@@ -85,10 +85,10 @@ const Header = () => {
               ))}
             </div>
 
-            {/* System Status Indicator */}
-            <div className="ml-6 px-4 py-2 bg-dark-900 border border-slate-800 rounded flex items-center gap-3 hover:border-matrix/30 transition-all duration-300">
+            {/* System Status Indicator - Hidden on smaller screens to prevent overlap */}
+            <div className="hidden lg:flex ml-6 px-4 py-2 bg-dark-900 border border-slate-800 rounded items-center gap-3 hover:border-matrix/30 transition-all duration-300">
               <Activity className="w-3.5 h-3.5 text-matrix animate-pulse" />
-              <div className="text-[9px] font-mono font-black text-slate-500 uppercase tracking-widest">
+              <div className="text-[9px] font-mono font-black text-slate-500 uppercase tracking-widest whitespace-nowrap">
                 System: <span className="text-matrix">Active</span>
               </div>
             </div>
