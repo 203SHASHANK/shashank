@@ -78,8 +78,6 @@ const Skills = () => {
                 className="absolute inset-y-0 left-0 bg-gradient-to-r from-matrix/40 to-matrix shadow-[0_0_10px_rgba(0,255,65,0.3)] transition-all duration-1000 ease-out"
                 style={{ width: isAnimated ? `${skill.level}%` : '0%' }}
               />
-              {/* Scanline effect on the bar */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent w-20 animate-scanline pointer-events-none" />
             </div>
           </div>
         </div>

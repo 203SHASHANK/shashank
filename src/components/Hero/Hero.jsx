@@ -67,7 +67,7 @@ const Hero = () => {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-8xl font-display font-black tracking-tighter text-white uppercase leading-none">
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black tracking-tighter text-white uppercase leading-none">
                 {personalInfo.name.split(' ')[0]} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-matrix to-cyber-blue drop-shadow-[0_0_10px_rgba(0,255,65,0.3)]">
                   {personalInfo.name.split(' ')[1]}
@@ -126,7 +126,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-matrix/10 blur-[100px] animate-pulse-slow -z-10" />
 
               {/* Terminal Window */}
-              <div className="bg-dark-900/90 rounded-lg shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] border border-matrix/20 overflow-hidden font-mono text-[13px] leading-relaxed backdrop-blur-md relative scanline-overlay">
+              <div className="bg-dark-900/90 rounded-lg shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] border border-matrix/20 overflow-hidden font-mono text-[13px] leading-relaxed backdrop-blur-md relative">
                 {/* Terminal Header */}
                 <div className="bg-dark-800 px-4 py-2 flex items-center justify-between border-b border-matrix/10">
                   <div className="flex gap-1.5">
@@ -214,13 +214,13 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Decorative Tech Elements */}
-              <div className="absolute -right-8 -bottom-16 md:-bottom-8 opacity-10 animate-float">
+              {/* Decorative Tech Elements Removed to prevent visual artifacts */}
+              {/* <div className="absolute -right-8 -bottom-16 md:-bottom-8 opacity-10 animate-float">
                 <Database className="w-40 h-40 text-matrix" />
               </div>
               <div className="absolute -left-12 top-1/4 opacity-10 animate-float delay-600">
                 <Server className="w-24 h-24 text-cyber-blue" />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
