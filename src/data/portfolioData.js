@@ -6,13 +6,13 @@ export const personalInfo = {
   location: "Bengaluru, Karnataka",
   email: "203shashanks@gmail.com",
   phone: "+91-9606138748",
-  bio: "Passionate Backend Developer focused on building scalable, efficient, and secure server-side applications. Experienced in Java, Spring Boot, and cloud technologies, with a strong foundation in computer science and problem-solving.",
+  bio: "Passionate Backend Developer focused on building scalable, efficient, and secure server-side applications. Expert in Go, Java, and Python, with deep experience in microservices architecture, real-time data processing, and enterprise-grade security.",
   avatar: "👨‍💻",
   roles: [
-    'Backend Developer',
-    'Java Specialist',
+    'Go / Java Developer',
+    'Python (FastAPI) Eng',
     'System Architect',
-    'Problem Solver'
+    'Microservices Expert'
   ],
   socialLinks: {
     github: "https://github.com/203SHASHANK",
@@ -37,14 +37,16 @@ export const experience = [
     position: "Engineer - I",
     duration: "Present",
     location: "Bengaluru, Karnataka",
-    description: "Developing robust backend systems and optimizing data processing pipelines.",
+    description: "Architecting high-performance Go microservices and Java systems. Leading digital transformation through robust API design and cloud-native solutions.",
     responsibilities: [
+      "Designing and implementing Go microservices using the Fiber framework",
       "Architecting scalable backend services using Java and Spring Boot",
-      "Designing and optimizing database schemas for performance",
-      "Implementing secure API endpoints and authentication flows",
-      "Collaborating on system design and architectural decisions"
+      "Integrating Keycloak for centralized identity and access management",
+      "Deploying high-throughput event streaming solutions with Kafka",
+      "Optimizing data persistence strategies using MongoDB and SQL",
+      "Managing complex development workflows using Jira, Zoho, and Bitbucket"
     ],
-    technologies: ["Java", "Spring Boot", "SQL", "Microservices"],
+    technologies: ["Go", "Fiber", "Java", "Python", "Kafka", "Keycloak", "MongoDB"],
     icon: "⚙️",
     type: "full-time"
   }
@@ -135,20 +137,24 @@ export const projects = [
 
 export const skills = {
   languages: [
+    { name: "Go", level: 92, icon: "🐹", category: "Core" },
     { name: "Java", level: 95, icon: "☕", category: "Core" },
-    { name: "Oracle SQL", level: 85, icon: "🗃️", category: "Database" },
-    { name: "Python", level: 80, icon: "🐍", category: "Scripting" }
+    { name: "Python", level: 90, icon: "🐍", category: "Core" },
+    { name: "Oracle SQL", level: 85, icon: "🗃️", category: "Database" }
   ],
   frameworks: [
+    { name: "Go Fiber", level: 90, icon: "🚀", category: "Backend" },
     { name: "Spring Boot", level: 90, icon: "🍃", category: "Backend" },
-    { name: "Google Firebase", level: 85, icon: "🔥", category: "Cloud" },
-    { name: "Salesforce", level: 75, icon: "☁️", category: "CRM/Dev" },
-    { name: "Android Studio", level: 80, icon: "📱", category: "Mobile" }
+    { name: "FastAPI", level: 85, icon: "⚡", category: "Backend" },
+    { name: "Keycloak", level: 85, icon: "🔑", category: "Security" },
+    { name: "Kafka", level: 80, icon: "📨", category: "Streaming" },
+    { name: "MongoDB", level: 88, icon: "🍃", category: "Database" }
   ],
   tools: [
+    { name: "Jira / Zoho", level: 90, icon: "📋", category: "Management" },
+    { name: "Bitbucket", level: 85, icon: "📥", category: "DevOps" },
     { name: "GitHub", level: 90, icon: "🐙", category: "DevOps" },
     { name: "IntelliJ", level: 95, icon: "🧠", category: "IDE" },
-    { name: "Eclipse", level: 85, icon: "🌑", category: "IDE" },
     { name: "VS Code", level: 90, icon: "💻", category: "Tools" }
   ]
 };
