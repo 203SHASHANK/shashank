@@ -36,12 +36,13 @@ const Hero = () => {
     window.open(personalInfo.resumeUrl || '#', '_blank');
   };
 
-  const SocialLink = ({ href, icon: Icon, label }) => (
+  const SocialLink = ({ href, icon: Icon, label, ...props }) => (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="p-3 bg-dark-900 border border-matrix/20 rounded-lg text-slate-400 hover:text-matrix hover:border-matrix hover:shadow-[0_0_15px_rgba(0,255,65,0.2)] hover:-translate-y-1 transition-all duration-300"
+
+      className={`p-3 bg-dark-900 border border-matrix/20 rounded-lg text-slate-400 hover:text-matrix hover:border-matrix hover:shadow-[0_0_15px_rgba(0,255,65,0.2)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center ${props.className || ''}`}
       aria-label={label}
     >
       <Icon className="w-5 h-5" />
@@ -110,12 +111,8 @@ const Hero = () => {
 
             <div className="flex gap-4 pt-6">
               <SocialLink href={personalInfo.socialLinks.github} icon={Github} label="GitHub" />
-              <div className="animate-fade-in-up delay-100">
-                <SocialLink href={personalInfo.socialLinks.linkedin} icon={Linkedin} label="LinkedIn" />
-              </div>
-              <div className="animate-fade-in-up delay-200">
-                <SocialLink href={personalInfo.socialLinks.leetcode} icon={Code} label="LeetCode" />
-              </div>
+              <SocialLink href={personalInfo.socialLinks.linkedin} icon={Linkedin} label="LinkedIn" className="animate-fade-in-up delay-100" />
+              <SocialLink href={personalInfo.socialLinks.leetcode} icon={Code} label="LeetCode" className="animate-fade-in-up delay-200" />
             </div>
           </div>
 
