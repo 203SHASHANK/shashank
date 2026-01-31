@@ -3,46 +3,76 @@ import { motion } from 'framer-motion';
 
 const VolleyballAnimation = () => {
     return (
-        <div className="w-full h-full relative overflow-hidden bg-sky-50 dark:bg-sky-900/20">
-            {/* Net */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-40 bg-slate-400 z-10">
-                <div className="w-full h-full border-2 border-slate-500 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMCAwaDh2OEgwem0xIDFoNnY2SDF6IiBmaWxsPSIjOTRBNUI3Ii8+Cjwvc3ZnPg==')] opacity-50"></div>
+        <div className="w-full h-full relative overflow-hidden bg-dark-900/50">
+            {/* Dynamic Spike Zone */}
+            <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#00FF41_1px,transparent_1px),linear-gradient(to_bottom,#00FF41_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+            {/* Net / Data Barrier */}
+            <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-1.5 h-32 bg-matrix/20 z-10">
+                <div className="w-full h-full border-x border-matrix/50 bg-matrix/5 animate-pulse"></div>
+                <div className="absolute top-0 -left-2 -right-2 h-1 bg-matrix shadow-[0_0_10px_rgba(0,255,65,0.8)]"></div>
             </div>
 
-            {/* Floor */}
-            <div className="absolute bottom-0 w-full h-16 bg-orange-200 dark:bg-orange-900/40"></div>
-
-            {/* Ball */}
+            {/* Athlete Node A (Spiker) */}
             <motion.div
-                className="absolute w-10 h-10 bg-yellow-400 rounded-full border-2 border-blue-600 shadow-md z-20"
-                initial={{ left: "10%", bottom: "20%" }}
+                className="absolute bottom-16 left-[15%] w-12 h-20 origin-bottom"
                 animate={{
-                    left: ["10%", "50%", "90%"],
-                    bottom: ["20%", "80%", "10%"],
-                    rotate: 1080
+                    y: [0, -40, 0],
+                    scaleY: [1, 0.8, 1.2, 1]
+                }}
+                transition={{ duration: 0.8, delay: 0, repeat: Infinity, repeatDelay: 1.2 }}
+            >
+                <div className="w-4 h-4 rounded-full bg-matrix/40 mx-auto" />
+                <div className="w-1.5 h-12 bg-matrix/30 mx-auto mt-1" />
+                <motion.div
+                    className="absolute top-4 left-0 w-12 h-1 bg-matrix/40"
+                    animate={{ rotate: [-45, 45, -45] }}
+                    transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 1.2 }}
+                />
+            </motion.div>
+
+            {/* Packet Ball */}
+            <motion.div
+                className="absolute w-8 h-8 bg-dark-850 rounded-lg border border-matrix shadow-[0_0_15px_rgba(0,255,65,0.5)] z-20 flex items-center justify-center font-mono text-[9px] font-black text-matrix"
+                initial={{ left: "15%", bottom: "25%", rotate: 0 }}
+                animate={{
+                    left: ["15%", "50%", "85%"],
+                    bottom: ["25%", "85%", "16%"],
+                    rotate: [0, 360, 720]
                 }}
                 transition={{
                     duration: 1.5,
-                    times: [0, 0.5, 1], // Peak at 0.5 (net)
-                    ease: ["easeOut", "easeIn", "easeIn"] // Up slow, Down fast
+                    times: [0, 0.45, 1],
+                    repeat: Infinity,
+                    repeatDelay: 0.5,
+                    ease: "easeInOut"
                 }}
             >
-                {/* Volley ball lines */}
-                <div className="absolute inset-0 rounded-full border-2 border-blue-600 rotate-45"></div>
-                <div className="absolute inset-0 rounded-full border-2 border-blue-600 -rotate-45"></div>
+                REQ
+                {/* Trail */}
+                <motion.div
+                    className="absolute inset-0 border border-matrix animate-ping opacity-20"
+                />
             </motion.div>
 
-            {/* Shadow following ball */}
+            {/* Land Impact / Confirmation */}
             <motion.div
-                className="absolute bottom-[60px] h-2 bg-black/20 rounded-full blur-sm"
-                initial={{ left: "10%", width: "40px", opacity: 0.5 }}
+                className="absolute bottom-16 left-[85%] -translate-x-1/2 w-32 h-32 bg-matrix/10 rounded-full opacity-0 blur-2xl flex items-center justify-center"
                 animate={{
-                    left: ["10%", "50%", "90%"],
-                    width: ["40px", "20px", "40px"], // Smaller when high
-                    opacity: [0.5, 0.2, 0.5] // Fainter when high
+                    opacity: [0, 1, 0],
+                    scale: [0.5, 2]
                 }}
-                transition={{ duration: 1.5, times: [0, 0.5, 1], ease: "linear" }}
-            />
+                transition={{ duration: 0.5, delay: 1.5, repeat: Infinity, repeatDelay: 1.5 }}
+            >
+                <div className="text-[10px] font-mono font-black text-matrix uppercase tracking-widest whitespace-nowrap">
+                    PACKET_RELAY_SUCCESS
+                </div>
+            </motion.div>
+
+            {/* Digital Floor */}
+            <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-dark-900 to-transparent border-t border-matrix/10">
+                <div className="w-full h-full opacity-10 bg-[linear-gradient(45deg,#00FF41_25%,transparent_25%,transparent_50%,#00FF41_50%,#00FF41_75%,transparent_75%,transparent)] bg-[size:10px_10px]"></div>
+            </div>
         </div>
     );
 };

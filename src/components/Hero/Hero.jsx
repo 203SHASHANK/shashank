@@ -142,7 +142,7 @@ const Hero = () => {
                       <span className="text-cyber-blue font-bold">»</span> System initialization successful.
                     </div>
                     <div className="flex items-center gap-2 pl-4 text-slate-500 italic">
-                      [OK] Runtime Environment: Java 21, Spring Boot 3.2
+                      [OK] Runtime Environment: Java 21, Spring Boot 3.2, Go 1.22
                     </div>
                   </div>
 

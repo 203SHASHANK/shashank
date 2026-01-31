@@ -144,10 +144,10 @@ const Skills = () => {
         {/* Global System Stats */}
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: 'Uptime', value: '99.98%', icon: Activity, color: 'text-matrix' },
-            { label: 'Latency', value: '14ms', icon: ShieldCheck, color: 'text-cyber-blue' },
-            { label: 'Requests', value: '2.4M', icon: Server, color: 'text-cyber-gold' },
-            { label: 'Deployments', value: '150+', icon: Cloud, color: 'text-purple-400' }
+            { label: 'Thread Concurrency', value: 'Active', icon: Activity, color: 'text-matrix' },
+            { label: 'Cache Efficiency', value: '99.2%', icon: Server, color: 'text-cyber-blue' },
+            { label: 'Buffer Integrity', value: 'Secure', icon: ShieldCheck, color: 'text-cyber-gold' },
+            { label: 'Packet Throughput', value: 'High', icon: Cloud, color: 'text-purple-400' }
           ].map((stat, i) => (
             <div key={i} className="bg-dark-900/40 p-6 border border-slate-800 rounded-lg flex flex-col items-center text-center group hover:border-slate-700 transition-colors">
               <stat.icon className={`w-6 h-6 ${stat.color} mb-4 opacity-50 group-hover:opacity-100 transition-opacity`} />

@@ -6,7 +6,7 @@ export const personalInfo = {
   location: "Bengaluru, Karnataka",
   email: "203shashanks@gmail.com",
   phone: "+91-9606138748",
-  bio: "Passionate Backend Developer focused on building scalable, efficient, and secure server-side applications. Expert in Go, Java, and Python, with deep experience in microservices architecture, real-time data processing, and enterprise-grade security.",
+  bio: "Passionate Backend Developer specializing in Go, focused on building scalable, efficient, and secure server-side applications. Expert in Go, Java, and Python, with deep experience in microservices architecture, real-time data processing, and enterprise-grade security, having developed and maintained 1000+ APIs with a focus on high performance and low latency.",
   avatar: "👨‍💻",
   roles: [
     'Go / Java Developer',
@@ -221,9 +221,9 @@ export const achievements = [
 
 export const stats = [
   { label: "Architecture Scale", value: "High" },
-  { label: "API Endpoints", value: "50+" },
-  { label: "Logic Purity", value: "98%" },
-  { label: "System Uptime", value: "99.9%" }
+  { label: "API Endpoints", value: "1000+" },
+  { label: "Security Protocol", value: "AES-256" },
+  { label: "Data Integrity", value: "SHA-3" }
 ];
 
 export const hobbies = [
