@@ -1,10 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Mail, MapPin, Send, Github, Linkedin, Code, CheckCircle2, AlertCircle, Copy, Phone, Terminal, Network, ShieldAlert } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import { personalInfo } from '../../data/portfolioData';
 
 const Contact = () => {
-  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,10 +13,8 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [copiedField, setCopiedField] = useState(null);
 
-  // Initialize EmailJS
-  const EMAIL_SERVICE_ID = 'service_53klkeq';
-  const EMAIL_TEMPLATE_ID = 'shashank_203';
-  const EMAIL_PUBLIC_KEY = '5e_Mdvc7CZLJV-7cg';
+  // Endpoint for library-less form submission via FormSubmit (AJAX)
+  const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${personalInfo.email}`;
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -38,22 +34,35 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      await emailjs.sendForm(
-        EMAIL_SERVICE_ID,
-        EMAIL_TEMPLATE_ID,
-        form.current,
-        EMAIL_PUBLIC_KEY
-      );
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `New Transmission from Portfolio: ${formData.subject}`
+        })
+      });
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      const result = await response.json();
+
+      if (result.success === 'true' || response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Packet delivery rejected by relay.');
+      }
 
     } catch (error) {
-      console.error('Email sending failed:', error);
+      console.error('Transmission failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
 
@@ -199,12 +208,20 @@ const Contact = () => {
                     <span className="text-[11px] font-mono font-black uppercase tracking-widest">
                       {submitStatus === 'success'
                         ? '>> Transmission successful: Data persistent'
-                        : '>> Error: Uplink failed. Retry requested.'}
+                        : '>> Error: Uplink failed. Validate credentials.'}
                     </span>
+                    {submitStatus === 'error' && (
+                      <button
+                        onClick={() => setSubmitStatus(null)}
+                        className="ml-auto text-[9px] font-mono font-black text-red-500 hover:text-white underline decoration-dotted underline-offset-4"
+                      >
+                        RETRY_HANDSHAKE
+                      </button>
+                    )}
                   </div>
                 )}
 
-                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-[10px] font-mono font-black text-slate-600 uppercase tracking-widest ml-1">Identifier</label>
@@ -281,9 +298,15 @@ const Contact = () => {
                   </button>
                 </form>
 
-                <div className="mt-8 flex items-center gap-3 text-[9px] font-mono text-slate-700 uppercase tracking-widest">
-                  <div className="w-2 h-2 bg-matrix/20 rounded-full" />
-                  Awaiting packet submission from local_host...
+                <div className="mt-8 flex items-center gap-3 text-[9px] font-mono uppercase tracking-widest">
+                  <div className={`w-2 h-2 rounded-full ${isSubmitting ? 'bg-matrix animate-pulse' :
+                    submitStatus === 'success' ? 'bg-matrix' :
+                      submitStatus === 'error' ? 'bg-red-500' : 'bg-slate-700'
+                    }`} />
+                  {isSubmitting ? 'Uplink active: Transmitting data packets...' :
+                    submitStatus === 'success' ? 'Transmission confirmed: Data persistent.' :
+                      submitStatus === 'error' ? 'Critical error: Uplink connection refused.' :
+                        'Awaiting packet submission from local_host...'}
                 </div>
               </div>
             </div>
