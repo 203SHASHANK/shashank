@@ -1,78 +1,132 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const VolleyballAnimation = () => {
+    const [outcome, setOutcome] = useState('SUCCESS'); // SUCCESS (200), CLIENT_ERR (400), SERVER_ERR (503)
+
+    useEffect(() => {
+        const outcomes = ['SUCCESS', 'CLIENT_ERR', 'SERVER_ERR'];
+        const interval = setInterval(() => {
+            setOutcome(outcomes[Math.floor(Math.random() * outcomes.length)]);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const getBallAnimation = () => {
+        switch (outcome) {
+            case 'SUCCESS': // Rally: P1 -> P2 -> P1 (200 OK)
+                return {
+                    left: ["15%", "50%", "85%", "50%", "15%"],
+                    bottom: ["25%", "85%", "25%", "65%", "20%"],
+                    rotate: [0, 180, 360, 540, 720],
+                    scale: [1, 1, 1, 1, 1]
+                };
+            case 'CLIENT_ERR': // P1 -> P2 -> Drop (400 Bad Request)
+                return {
+                    left: ["15%", "50%", "85%"],
+                    bottom: ["25%", "85%", "10%"], // Drops to floor
+                    rotate: [0, 180, 300],
+                    scale: [1, 1, 0.8]
+                };
+            case 'SERVER_ERR': // P1 -> Net -> Drop (503 Service Unavailable)
+                return {
+                    left: ["15%", "48%", "45%"], // Hits net
+                    bottom: ["25%", "60%", "10%"], // Falls back
+                    rotate: [0, 90, 45],
+                    scale: [1, 1, 1]
+                };
+            default: return {};
+        }
+    };
+
+    const getMessage = () => {
+        switch (outcome) {
+            case 'SUCCESS': return { code: "200", text: "ACK_RECEIVED", color: "text-matrix" };
+            case 'CLIENT_ERR': return { code: "400", text: "BAD_REQUEST (DROP)", color: "text-yellow-500" };
+            case 'SERVER_ERR': return { code: "503", text: "SERVICE_UNAVAILABLE", color: "text-red-500" };
+            default: return {};
+        }
+    };
+
+    const msg = getMessage();
+
     return (
-        <div className="w-full h-full relative overflow-hidden bg-dark-900/50">
-            {/* Dynamic Spike Zone */}
+        <div className="w-full h-full relative overflow-hidden bg-dark-900/50 flex items-center justify-center font-mono">
+            {/* Grid Background */}
             <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#00FF41_1px,transparent_1px),linear-gradient(to_bottom,#00FF41_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-            {/* Net / Data Barrier */}
-            <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-1.5 h-32 bg-matrix/20 z-10">
-                <div className="w-full h-full border-x border-matrix/50 bg-matrix/5 animate-pulse"></div>
-                <div className="absolute top-0 -left-2 -right-2 h-1 bg-matrix shadow-[0_0_10px_rgba(0,255,65,0.8)]"></div>
+            {/* Net / Firewall */}
+            <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-2 h-40 z-10 flex flex-col items-center">
+                <div className="w-full h-full bg-matrix/20 border-x border-matrix/50 relative overflow-hidden">
+                    <div className="absolute inset-0 animate-pulse bg-matrix/10" />
+                    {/* Grid Pattern on Net */}
+                    <div className="w-full h-full bg-[linear-gradient(45deg,transparent_45%,#00FF41_50%,transparent_55%)] bg-[size:6px_6px] opacity-30" />
+                </div>
+                <div className="w-32 h-1 bg-matrix/50 blur-sm absolute bottom-0" /> {/* Shadow */}
             </div>
 
-            {/* Athlete Node A (Spiker) */}
+            {/* PLAYER 1 (Client) */}
             <motion.div
-                className="absolute bottom-16 left-[15%] w-12 h-20 origin-bottom"
-                animate={{
-                    y: [0, -40, 0],
-                    scaleY: [1, 0.8, 1.2, 1]
-                }}
-                transition={{ duration: 0.8, delay: 0, repeat: Infinity, repeatDelay: 1.2 }}
+                className="absolute bottom-16 left-[15%] w-12 h-24 origin-bottom flex flex-col items-center"
+                animate={outcome === 'SERVER_ERR' ? {} : { y: [0, -30, 0] }} // Jump only if not service error (simplification)
+                transition={{ duration: 0.8, loop: Infinity }}
             >
-                <div className="w-4 h-4 rounded-full bg-matrix/40 mx-auto" />
-                <div className="w-1.5 h-12 bg-matrix/30 mx-auto mt-1" />
-                <motion.div
-                    className="absolute top-4 left-0 w-12 h-1 bg-matrix/40"
-                    animate={{ rotate: [-45, 45, -45] }}
-                    transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 1.2 }}
-                />
+                <div className="w-6 h-6 rounded-full bg-slate-400 border border-slate-300 shadow-lg relative z-10" />
+                <div className="w-8 h-12 bg-slate-600 rounded-lg -mt-1 relative z-0" />
+                <div className="text-[8px] text-matrix mt-1">CLIENT</div>
             </motion.div>
 
-            {/* Packet Ball */}
+            {/* PLAYER 2 (Server) */}
             <motion.div
-                className="absolute w-8 h-8 bg-dark-850 rounded-lg border border-matrix shadow-[0_0_15px_rgba(0,255,65,0.5)] z-20 flex items-center justify-center font-mono text-[9px] font-black text-matrix"
+                className="absolute bottom-16 right-[15%] w-12 h-24 origin-bottom flex flex-col items-center"
+                animate={outcome === 'SUCCESS' ? { y: [0, -30, 0], delay: 1 } : {}} // Jump to return if success
+                transition={{ duration: 0.8 }}
+            >
+                <div className="w-6 h-6 rounded-full bg-slate-400 border border-slate-300 shadow-lg relative z-10" />
+                <div className="w-8 h-12 bg-slate-600 rounded-lg -mt-1 relative z-0" />
+                <div className="text-[8px] text-cyber-blue mt-1">SERVER</div>
+            </motion.div>
+
+            {/* The Packet (Ball) */}
+            <motion.div
+                key={outcome}
+                className={`absolute w-8 h-8 rounded-lg border flex items-center justify-center font-black text-[8px] z-50 bg-dark-950
+                    ${outcome === 'SERVER_ERR' ? 'border-red-500 text-red-500 shadow-red-500/50' :
+                        outcome === 'CLIENT_ERR' ? 'border-yellow-500 text-yellow-500 shadow-yellow-500/50' :
+                            'border-matrix text-matrix shadow-matrix/50'}
+                 shadow-[0_0_15px_current]`}
                 initial={{ left: "15%", bottom: "25%", rotate: 0 }}
-                animate={{
-                    left: ["15%", "50%", "85%"],
-                    bottom: ["25%", "85%", "16%"],
-                    rotate: [0, 360, 720]
-                }}
+                animate={getBallAnimation()}
                 transition={{
-                    duration: 1.5,
-                    times: [0, 0.45, 1],
-                    repeat: Infinity,
-                    repeatDelay: 0.5,
+                    duration: outcome === 'SUCCESS' ? 3 : 1.5,
+                    times: outcome === 'SUCCESS' ? [0, 0.25, 0.5, 0.75, 1] : [0, 0.5, 1],
                     ease: "easeInOut"
                 }}
             >
                 REQ
-                {/* Trail */}
+            </motion.div>
+
+            {/* Outcome Message */}
+            <AnimatePresence>
                 <motion.div
-                    className="absolute inset-0 border border-matrix animate-ping opacity-20"
-                />
-            </motion.div>
+                    key={outcome + "_msg"}
+                    className="absolute top-10 left-1/2 -translate-x-1/2 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ delay: outcome === 'SUCCESS' ? 2 : 1.2 }}
+                >
+                    <div className={`text-4xl font-black tracking-tighter ${msg.color} drop-shadow-lg`}>
+                        {msg.code}
+                    </div>
+                    <div className={`text-xs font-mono font-bold tracking-widest ${msg.color}`}>
+                        {msg.text}
+                    </div>
+                </motion.div>
+            </AnimatePresence>
 
-            {/* Land Impact / Confirmation */}
-            <motion.div
-                className="absolute bottom-16 left-[85%] -translate-x-1/2 w-32 h-32 bg-matrix/10 rounded-full opacity-0 blur-2xl flex items-center justify-center"
-                animate={{
-                    opacity: [0, 1, 0],
-                    scale: [0.5, 2]
-                }}
-                transition={{ duration: 0.5, delay: 1.5, repeat: Infinity, repeatDelay: 1.5 }}
-            >
-                <div className="text-[10px] font-mono font-black text-matrix uppercase tracking-widest whitespace-nowrap">
-                    PACKET_RELAY_SUCCESS
-                </div>
-            </motion.div>
-
-            {/* Digital Floor */}
-            <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-dark-900 to-transparent border-t border-matrix/10">
-                <div className="w-full h-full opacity-10 bg-[linear-gradient(45deg,#00FF41_25%,transparent_25%,transparent_50%,#00FF41_50%,#00FF41_75%,transparent_75%,transparent)] bg-[size:10px_10px]"></div>
-            </div>
+            {/* Floor Reflection */}
+            <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-dark-950 to-transparent pointer-events-none" />
         </div>
     );
 };
