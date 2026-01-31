@@ -350,6 +350,7 @@ const Game = () => {
                                     return (
                                         <div
                                             key={i}
+                                            data-node-index={i} // Critical for touch detection
                                             onMouseDown={() => { setIsDragging(true); handleNodeInteract(i); }}
                                             onMouseEnter={() => { if (isDragging) handleNodeInteract(i); }}
                                             onTouchStart={(e) => {
@@ -359,8 +360,15 @@ const Game = () => {
                                             }}
                                             onTouchMove={(e) => {
                                                 e.preventDefault();
-                                                // Simplified touch logic 
-                                                // Ideally use elementFromPoint logic carefully
+                                                const touch = e.touches[0];
+                                                const target = document.elementFromPoint(touch.clientX, touch.clientY);
+                                                if (target) {
+                                                    const node = target.closest('[data-node-index]');
+                                                    if (node) {
+                                                        const index = parseInt(node.getAttribute('data-node-index'));
+                                                        handleNodeInteract(index);
+                                                    }
+                                                }
                                             }}
                                             className={`relative flex items-center justify-center z-10 transition-transform duration-100 ${isInvalid ? 'animate-shake' : ''}`}
                                         >
