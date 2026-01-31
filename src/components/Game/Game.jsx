@@ -254,7 +254,7 @@ const Game = () => {
                 <div className="absolute top-0 left-0 w-full h-1 bg-matrix/20 animate-scanline" />
             </div>
 
-            <div className="max-w-6xl w-full mx-auto px-4 z-10 flex flex-col lg:flex-row gap-12 items-start justify-center">
+            <div className="max-w-6xl w-full mx-auto px-4 z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-center">
 
                 {/* LEFT: Game Area */}
                 <div className="flex-1 max-w-lg w-full mx-auto">
@@ -291,7 +291,7 @@ const Game = () => {
 
                         {/* GRID Container */}
                         <div
-                            className="relative aspect-square bg-dark-950 rounded-xl p-4 border border-slate-800 shadow-inner overflow-hidden cursor-crosshair touch-none"
+                            className="relative aspect-square bg-dark-950 rounded-xl p-2 sm:p-4 border border-slate-800 shadow-inner overflow-hidden cursor-crosshair touch-none"
                             onMouseLeave={() => setIsDragging(false)}
                             onMouseUp={() => setIsDragging(false)}
                         >

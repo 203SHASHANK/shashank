@@ -114,7 +114,7 @@ const Skills = () => {
                 <button
                   key={tab.id}
                   onClick={() => handleTabChange(tab.id)}
-                  className={`flex items-center gap-3 px-6 py-3 rounded text-[11px] font-mono font-black uppercase tracking-widest transition-all duration-300 ${isActive
+                  className={`flex items-center gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded text-[11px] font-mono font-black uppercase tracking-widest transition-all duration-300 ${isActive
                     ? 'bg-dark-850 text-matrix shadow-[inset_0_0_10px_rgba(0,255,65,0.05)] border border-matrix/20'
                     : 'text-slate-500 hover:text-slate-300 hover:bg-dark-850'
                     }`}
@@ -148,7 +148,7 @@ const Skills = () => {
             { label: 'Packet Throughput', value: 'High', icon: Cloud, color: 'text-purple-400' }
           ].map((stat, i) => (
             <div key={i} className="bg-dark-900/40 p-6 border border-slate-800 rounded-lg flex flex-col items-center text-center group hover:border-slate-700 transition-colors">
-              <stat.icon className={`w-6 h-6 ${stat.color} mb-4 opacity-50 group-hover:opacity-100 transition-opacity`} />
+              <stat.icon className={`w-6 h-6 ${stat.color} mb-4 transition-opacity`} />
               <div className="text-2xl font-display font-black text-white mb-1 uppercase tracking-tighter">{stat.value}</div>
               <div className="text-[10px] font-mono font-bold text-slate-600 uppercase tracking-widest">{stat.label}</div>
             </div>

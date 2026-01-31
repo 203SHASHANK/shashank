@@ -256,7 +256,7 @@ const Hero = () => {
         </div>
 
         {/* Professional Stats Section - Redesigned */}
-        <div className="mt-24 pt-12 border-t border-matrix/10">
+        <div className="mt-12 md:mt-24 pt-12 border-t border-matrix/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div
@@ -264,7 +264,7 @@ const Hero = () => {
                 className={`group relative p-6 bg-dark-900/40 border border-matrix/5 rounded-lg overflow-hidden ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="absolute top-0 right-0 w-16 h-16 bg-matrix/5 rotate-45 translate-x-10 -translate-y-10 group-hover:bg-matrix/10 transition-colors" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-matrix/10 rotate-45 translate-x-10 -translate-y-10 transition-colors" />
                 <div className="relative z-10 space-y-1">
                   <div className="text-3xl font-mono font-black text-matrix tracking-tighter group-hover:text-shadow-glow transition-all">
                     {stat.value}
@@ -273,7 +273,7 @@ const Hero = () => {
                     {stat.label}
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-matrix/30 group-hover:w-full transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-matrix/20 group-hover:bg-matrix transition-all duration-500" />
               </div>
             ))}
           </div>

@@ -9,11 +9,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply antialiased overflow-x-hidden;
+    scroll-padding-top: 5rem;
+    /* Offset for sticky nav */
+    @apply antialiased;
   }
 
   body {
-    @apply bg-dark-950 text-slate-200 transition-colors duration-300 font-sans;
+    @apply bg-dark-950 text-slate-200 transition-colors duration-300 font-sans overflow-x-hidden;
     background-image:
       linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
@@ -279,19 +281,6 @@
   /* Hover Transform Effects */
   .hover-lift {
     transition: transform 0.3s ease;
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      /* IE and Edge */
-      scrollbar-width: none;
-      /* Firefox */
-    }
   }
 
   .hover-lift:hover {
