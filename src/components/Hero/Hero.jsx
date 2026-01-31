@@ -117,7 +117,7 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Advanced Terminal Visual */}
-          <div className={`relative ${isLoaded ? 'animate-fade-in-left' : 'opacity-0'} delay-300 hidden lg:block`}>
+          <div className={`relative ${isLoaded ? 'animate-fade-in-left' : 'opacity-0'} delay-300 block mt-12 lg:mt-0`}>
             <div className="relative z-10 w-full max-w-lg mx-auto">
               {/* Animated Glow behind terminal */}
               <div className="absolute inset-0 bg-matrix/10 blur-[100px] animate-pulse-slow -z-10" />
@@ -137,7 +137,7 @@ const Hero = () => {
                 </div>
 
                 {/* Terminal Body */}
-                <div className="p-6 text-slate-400 space-y-5 h-[460px] overflow-hidden">
+                <div className="p-6 text-slate-400 space-y-5 h-auto min-h-[400px] lg:h-[460px] overflow-hidden">
                   <div className="space-y-1">
                     <div className="text-matrix opacity-80 flex items-center gap-2">
                       <span className="text-cyber-blue font-bold">»</span> System initialization successful.
