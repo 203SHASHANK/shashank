@@ -120,6 +120,66 @@
     animation: shimmer 2s infinite;
   }
 
+  @keyframes neonPulse {
+
+    0%,
+    100% {
+      text-shadow: 0 0 10px rgba(0,255,65,0.5), 0 0 20px rgba(0,255,65,0.3), 0 0 30px rgba(0,255,65,0.1);
+    }
+
+    50% {
+      text-shadow: 0 0 15px rgba(0,255,65,0.8), 0 0 30px rgba(0,255,65,0.5), 0 0 40px rgba(0,255,65,0.3);
+    }
+  }
+
+  @keyframes gridMove {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(50px);
+    }
+  }
+
+  @keyframes textRain {
+    0% {
+      background-position: 0% 0%;
+    }
+
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+
+  @keyframes scanlineSweep {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      left: 200%;
+      opacity: 0;
+    }
+  }
+
+  .text-glow-matrix {
+    animation: neonPulse 2s infinite alternate;
+  }
+
+  .bg-grid-pattern {
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(to right, rgba(0,255,65,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,255,65,0.05) 1px, transparent 1px);
+    transform-origin: top center;
+  }
+
   @keyframes fadeInUp {
     from {
       opacity: 0;

@@ -52,7 +52,18 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-dark-950">
       {/* Matrix-like Background Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#00FF41 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }} />
+      {/* 3D Grid Background */}
+      <div className="absolute inset-0 perspective-1000 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-transparent to-dark-950 z-10" />
+        <div className="absolute inset-0 opacity-20 transform rotate-x-60 scale-150 animate-[gridMove_20s_linear_infinite] bg-grid-pattern" />
+        {/* Matrix Rain Effect */}
+        <div className="absolute inset-0 opacity-10 animate-[textRain_2s_linear_infinite]"
+          style={{
+            backgroundImage: 'linear-gradient(0deg, transparent 25%, #00FF41 50%, transparent 75%)',
+            backgroundSize: '100% 50px'
+          }}
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -64,13 +75,17 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-matrix opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-matrix"></span>
               </span>
-              <span className="text-xs font-mono font-bold text-matrix uppercase tracking-tighter">System Authenticated: Backend V3.0</span>
+              <span className="text-xs font-mono font-bold text-matrix uppercase tracking-tighter relative overflow-hidden">
+                System Authenticated: Backend V3.0
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-matrix/40 to-transparent animate-[scanlineSweep_4s_linear_infinite]" />
+              </span>
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black tracking-tighter text-white uppercase leading-none">
-                {personalInfo.name.split(' ')[0]} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-matrix to-cyber-blue drop-shadow-[0_0_10px_rgba(0,255,65,0.3)]">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter text-white uppercase leading-none">
+                {personalInfo.name.split(' ')[0]}
+                <br />
+                <span className="text-matrix text-glow-matrix inline-block mt-2">
                   {personalInfo.name.split(' ')[1]}
                 </span>
               </h1>
@@ -81,9 +96,27 @@ const Hero = () => {
                 <span className="w-2.5 h-6 bg-matrix animate-blink ml-1"></span>
               </div>
 
-              <p className="text-lg text-slate-400 max-w-xl leading-relaxed font-sans border-l-2 border-matrix/20 pl-6 italic">
-                "{personalInfo.bio}"
-              </p>
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-matrix/20 to-cyber-blue/20 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative p-4 bg-dark-900/50 backdrop-blur-sm ring-1 ring-white/10 rounded-lg font-mono text-sm md:text-base leading-relaxed overflow-hidden">
+                  <div className="flex gap-2 text-xs text-slate-500 mb-2 border-b border-white/5 pb-2">
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+                    </div>
+                    <span className="ml-auto">developer.config.js</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div><span className="text-purple-400">const</span> <span className="text-yellow-200">developer</span> <span className="text-white">=</span> <span className="text-yellow-400">{`{`}</span></div>
+                    <div className="pl-4"><span className="text-sky-300">fuel</span>: <span className="text-green-300">'Caffeine ☕'</span>,</div>
+                    <div className="pl-4"><span className="text-sky-300">skills</span>: <span className="text-green-300">'Backend systems — Go | Java | Python'</span>,</div>
+                    <div className="pl-4"><span className="text-sky-300">style</span>: <span className="text-green-300">'Clean & Scalable'</span>,</div>
+                    <div className="pl-4"><span className="text-sky-300">mission</span>: <span className="text-green-300">'Outengine chaos'</span></div>
+                    <div><span className="text-yellow-400">{`}`}</span>;</div>
+                  </div>
+                </div>
+              </div>
 
               <div className="flex flex-wrap gap-6 text-slate-500 text-xs font-mono pt-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
                 <div className="flex items-center gap-2">
