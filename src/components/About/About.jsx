@@ -59,13 +59,49 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-slate-800 grid grid-cols-2 gap-4 relative z-10">
-                {stats.map((stat, i) => (
-                  <div key={i} className="space-y-1">
-                    <div className="text-[10px] font-mono font-black text-slate-600 uppercase tracking-widest">{stat.label}</div>
-                    <div className="text-sm font-mono font-black text-white uppercase">{stat.value}</div>
+              <div className="pt-6 border-t border-slate-800 relative z-10">
+                <div className="flex items-center justify-between mb-3 text-[10px] font-mono font-bold text-slate-600 uppercase tracking-widest">
+                  <span>Backend_Process_Monitor</span>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-matrix animate-pulse"></span>
+                    <span className="text-matrix">LIVE</span>
                   </div>
-                ))}
+                </div>
+
+                <div className="bg-dark-950/50 rounded border border-slate-800 p-3 font-mono text-[10px] md:text-xs">
+                  <div className="flex justify-between text-slate-500 mb-2 border-b border-white/5 pb-1">
+                    <span className="w-12">PID</span>
+                    <span className="flex-1">PROCESS</span>
+                    <span className="w-16">STATUS</span>
+                    <span className="w-12 text-right">CPU%</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between text-slate-300">
+                      <span className="w-12 text-slate-500">8080</span>
+                      <span className="flex-1 text-cyber-blue">API_GATEWAY</span>
+                      <span className="w-16 text-matrix">RUNNING</span>
+                      <span className="w-12 text-right">24%</span>
+                    </div>
+                    <div className="flex justify-between text-slate-300">
+                      <span className="w-12 text-slate-500">5432</span>
+                      <span className="flex-1 text-purple-400">POSTGRES_DB</span>
+                      <span className="w-16 text-matrix">ACTIVE</span>
+                      <span className="w-12 text-right">12%</span>
+                    </div>
+                    <div className="flex justify-between text-slate-300">
+                      <span className="w-12 text-slate-500">9092</span>
+                      <span className="flex-1 text-yellow-500">KAFKA_STREAM</span>
+                      <span className="w-16 text-matrix">LIVE</span>
+                      <span className="w-12 text-right">08%</span>
+                    </div>
+                    <div className="flex justify-between text-slate-300">
+                      <span className="w-12 text-slate-500">6379</span>
+                      <span className="flex-1 text-red-400">REDIS_CACHE</span>
+                      <span className="w-16 text-matrix">READY</span>
+                      <span className="w-12 text-right">04%</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

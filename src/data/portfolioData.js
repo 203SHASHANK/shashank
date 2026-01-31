@@ -169,6 +169,7 @@ export const skills = {
     { name: "Spring Boot", level: 90, icon: "🍃", category: "Backend" },
     { name: "FastAPI", level: 85, icon: "⚡", category: "Backend" },
     { name: "Keycloak", level: 85, icon: "🔑", category: "Security" },
+    { name: "KrakenD", level: 88, icon: "🐙", category: "Gateway" },
     { name: "Kafka", level: 80, icon: "📨", category: "Streaming" },
     { name: "MongoDB", level: 88, icon: "🍃", category: "Database" }
   ],
