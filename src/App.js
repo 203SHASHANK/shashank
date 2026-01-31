@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen bg-dark-950 font-sans text-slate-200 selection:bg-matrix/30 selection:text-matrix overflow-x-hidden">
       <Header />
 
       <main>
@@ -53,17 +53,17 @@ function App() {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 p-3 rounded-full bg-primary-600 text-white shadow-lg shadow-primary-500/30 hover:bg-primary-700 hover:scale-110 transition-all duration-300 z-50 ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+        className={`fixed bottom-8 right-8 p-3 rounded-sm bg-dark-900 border border-matrix text-matrix shadow-[0_0_15px_rgba(0,255,65,0.3)] hover:bg-matrix hover:text-dark-950 transition-all duration-300 z-50 ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
           }`}
         aria-label="Scroll to top"
       >
         <ArrowUp className="w-6 h-6" />
       </button>
 
-      {/* Background decorations */}
+      {/* Theme Background decorations */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute -top-4 -right-4 w-96 h-96 bg-primary-300/20 dark:bg-primary-900/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-4 -left-4 w-96 h-96 bg-accent-300/20 dark:bg-accent-900/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-matrix/5 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyber-blue/5 rounded-full blur-[120px] animate-pulse-slow delay-1000"></div>
       </div>
     </div>
   );

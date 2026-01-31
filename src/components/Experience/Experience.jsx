@@ -29,11 +29,11 @@ const Experience = () => {
               <h3 className="text-xl font-mono font-black text-white uppercase tracking-widest">Execution History</h3>
             </div>
 
-            <div className="space-y-12 relative before:absolute before:left-8 before:top-4 before:bottom-4 before:w-[1px] before:bg-gradient-to-b before:from-matrix/50 before:via-slate-800 before:to-transparent">
+            <div className="space-y-12 relative before:absolute before:left-4 md:before:left-8 before:top-4 before:bottom-4 before:w-[1px] before:bg-gradient-to-b before:from-matrix/50 before:via-slate-800 before:to-transparent">
               {experience.map((exp, index) => (
-                <div key={exp.id} className="relative pl-24 group">
+                <div key={exp.id} className="relative pl-10 md:pl-24 group">
                   {/* Timeline Node */}
-                  <div className="absolute left-6 top-0 w-5 h-5 bg-dark-950 border-2 border-slate-700 rounded-sm rotate-45 z-10 group-hover:border-matrix group-hover:shadow-[0_0_10px_rgba(0,255,65,0.5)] transition-all duration-500" />
+                  <div className="absolute left-[6px] md:left-6 top-0 w-5 h-5 bg-dark-950 border-2 border-slate-700 rounded-sm rotate-45 z-10 group-hover:border-matrix group-hover:shadow-[0_0_10px_rgba(0,255,65,0.5)] transition-all duration-500" />
 
                   {/* Content Card */}
                   <div className="glass-card relative border-matrix/5 group-hover:border-matrix/20">

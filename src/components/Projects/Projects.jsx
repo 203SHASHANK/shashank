@@ -113,7 +113,7 @@ const Projects = () => {
         </div>
 
         {/* Cyber Filter Tabs */}
-        <div className="flex flex-wrap gap-4 mb-16 border-b border-slate-800 pb-8">
+        <div className="flex flex-wrap gap-4 mb-16 border-b border-slate-800 pb-8 overflow-x-auto no-scrollbar">
           {categories.map((category) => (
             <button
               key={category}

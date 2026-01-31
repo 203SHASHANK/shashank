@@ -29,7 +29,7 @@ const TravelAnimation = () => {
                 <motion.path
                     d="M 100 300 C 200 100 400 100 500 250 S 700 100 800 200"
                     fill="none"
-                    stroke="rgba(0, 255, 65, 0.3)"
+                    stroke="rgba(0,255,65,0.3)"
                     strokeWidth="2"
                     strokeDasharray="5 5"
                     initial={{ pathLength: 0 }}

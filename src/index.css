@@ -9,14 +9,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply antialiased;
+    @apply antialiased overflow-x-hidden;
   }
-  
+
   body {
     @apply bg-dark-950 text-slate-200 transition-colors duration-300 font-sans;
-    background-image: 
-      linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+    background-image:
+      linear-gradient(rgba(0,255,65,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,65,0.05) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
@@ -24,11 +24,11 @@
   ::-webkit-scrollbar {
     @apply w-1.5;
   }
-  
+
   ::-webkit-scrollbar-track {
     @apply bg-dark-950;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     @apply bg-matrix/20 rounded-full hover:bg-matrix/40 transition-all duration-300;
   }
@@ -43,12 +43,12 @@
   .glass {
     @apply backdrop-blur-xl bg-dark-900/60 border border-matrix/10 shadow-2xl;
   }
-  
+
   .glass-card {
     @apply glass rounded-xl p-6 transition-all duration-500 hover:border-matrix/30 hover:bg-dark-900/80;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
   }
-  
+
   .glass-nav {
     @apply backdrop-blur-2xl bg-dark-950/80 border-b border-matrix/5;
   }
@@ -56,28 +56,28 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-matrix to-cyber-blue;
   }
-  
+
   .btn-primary {
     @apply px-8 py-3 bg-matrix/10 border border-matrix text-matrix font-mono text-sm tracking-widest uppercase hover:bg-matrix hover:text-dark-950 transition-all duration-300 transform active:scale-95 shadow-[0_0_15px_rgba(0,255,65,0.2)] hover:shadow-[0_0_25px_rgba(0,255,65,0.4)];
   }
-  
+
   .btn-secondary {
     @apply px-8 py-3 bg-dark-900 border border-slate-700 text-slate-300 font-mono text-sm tracking-widest uppercase hover:border-cyber-blue hover:text-cyber-blue transition-all duration-300 transform active:scale-95;
   }
-  
+
   .btn-icon {
     @apply p-2 rounded-lg text-slate-400 hover:text-matrix hover:bg-matrix/5 border border-transparent hover:border-matrix/20 transition-all duration-300;
   }
-  
+
   .nav-link {
     @apply relative text-slate-400 hover:text-matrix font-mono text-sm tracking-wider transition-colors duration-300;
   }
-  
+
   .nav-link::after {
     content: '';
     @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix transition-all duration-300 shadow-[0_0_10px_rgba(0,255,65,0.5)];
   }
-  
+
   .nav-link:hover::after {
     @apply w-full;
   }
@@ -85,7 +85,7 @@
   .nav-link.active {
     @apply text-matrix font-bold;
   }
-  
+
   .nav-link.active::after {
     @apply w-full;
   }
@@ -111,24 +111,47 @@
 
 @layer utilities {
   .text-shadow-glow {
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    text-shadow: 0 0 10px rgba(0,255,65,0.5);
   }
-  
+
   .animate-shimmer-custom {
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0,255,65,0.1), transparent);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
   }
 
   /* Animation Delays */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
-  .delay-700 { animation-delay: 700ms; }
-  .delay-800 { animation-delay: 800ms; }
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .delay-800 {
+    animation-delay: 800ms;
+  }
 
   /* 3D Perspective */
   .perspective-1000 {
@@ -142,6 +165,19 @@
   /* Hover Transform Effects */
   .hover-lift {
     transition: transform 0.3s ease;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
   }
 
   .hover-lift:hover {
@@ -160,8 +196,19 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(to bottom, transparent, rgba(0, 255, 65, 0.3), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(0,255,65,0.3), transparent);
     animation: scanline 8s linear infinite;
     pointer-events: none;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
