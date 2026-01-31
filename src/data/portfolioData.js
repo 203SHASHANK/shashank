@@ -37,14 +37,14 @@ export const experience = [
     position: "Engineer - I",
     duration: "Present",
     location: "Bengaluru, Karnataka",
-    description: "Architecting high-performance Go microservices and Java systems. Leading digital transformation through robust API design and cloud-native solutions.",
+    description: "Leading the architectural development of CareKonnect, an enterprise-grade Hospital Management System (HMS) certified for ABDM M1, M2, M3, and M4 milestones.",
     responsibilities: [
-      "Designing and implementing Go microservices using the Fiber framework",
-      "Architecting scalable backend services using Java and Spring Boot",
-      "Integrating Keycloak for centralized identity and access management",
-      "Deploying high-throughput event streaming solutions with Kafka",
-      "Optimizing data persistence strategies using MongoDB and SQL",
-      "Managing complex development workflows using Jira, Zoho, and Bitbucket"
+      "Architecting a 10+ microservices ecosystem for the CareKonnect OPD suite, ensuring high availability and scalability",
+      "Implementing HL7 FHIR standards for seamless healthcare data interoperability and ABHA portal integration",
+      "Successfully navigating M1-M4 ABDM certification processes, positioning the platform as a trusted national partner",
+      "Designing complex queue management, appointment scheduling, and automated billing modules in Go (Fiber)",
+      "Managing end-to-end patient lifecycle from facility registration to digital prescription and professional registry",
+      "Integrating Keycloak, Kafka, and MongoDB for secure, event-driven medical records management"
     ],
     technologies: ["Go", "Fiber", "Java", "Python", "Kafka", "Keycloak", "MongoDB"],
     icon: "⚙️",
@@ -131,6 +131,28 @@ export const projects = [
     ],
     githubUrl: "https://github.com/203SHASHANK/Augmented-Reality---Home-Decorator",
     liveUrl: "#",
+    screenshots: []
+  },
+  {
+    id: 5,
+    title: "CareKonnect HMS",
+    description: "ABDM-Certified (M1-M4) Hospital Management System featuring an integrated OPD suite and FHIR-based interoperability.",
+    longDescription: "A comprehensive healthcare platform providing a full OPD suite including facility registration, appointment scheduling, queue management, and electronic prescriptions. Successfully integrated with the national ABHA portal across all four milestones, ensuring high standards of data security and interoperability using HL7 FHIR standards.",
+    technologies: ["Go", "Fiber", "Microservices", "FHIR", "Kafka", "ABDM APIs", "MongoDB"],
+    image: "🏥",
+    category: "HealthTech / Backend",
+    year: "2024",
+    status: "Active / Certified",
+    features: [
+      "ABDM M1-M4 National Certification",
+      "HL7 FHIR Data Interoperability",
+      "10+ Microservices Architecture",
+      "Automated OPD/IPD Billing Suite",
+      "Professional & Facility Registries",
+      "Patient Lifecycle Management"
+    ],
+    githubUrl: "#",
+    liveUrl: "https://carekonnect.in/",
     screenshots: []
   }
 ];
