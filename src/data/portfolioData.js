@@ -55,6 +55,112 @@ export const experience = [
 export const projects = [
   {
     id: 1,
+    title: "CareKonnect HMS",
+    description: "ABDM-Certified (M1-M4) Hospital Management System featuring an integrated OPD suite and FHIR-based interoperability.",
+    longDescription: "A comprehensive healthcare platform providing a full OPD suite including facility registration, appointment scheduling, queue management, and electronic prescriptions. Successfully integrated with the national ABHA portal across all four milestones, ensuring high standards of data security and interoperability using HL7 FHIR standards.",
+    technologies: ["Go", "Fiber", "Microservices", "FHIR", "Kafka", "ABDM APIs", "MongoDB"],
+    image: "🏥",
+    category: "HealthTech / Backend",
+    year: "2024",
+    status: "Active / Certified",
+    features: [
+      "ABDM M1-M4 National Certification",
+      "HL7 FHIR Data Interoperability",
+      "10+ Microservices Architecture",
+      "Automated OPD/IPD Billing Suite",
+      "Professional & Facility Registries",
+      "Patient Lifecycle Management"
+    ],
+    githubUrl: "#",
+    liveUrl: "https://carekonnect.in/",
+    screenshots: []
+  },
+  {
+    id: 2,
+    title: "ImageCompressor-DCT",
+    description: "DCT-based image compression from scratch in Go achieving 48.3× compression ratio at PSNR 33.77 dB / SSIM 0.9924, producing files 4% smaller than Go stdlib JPEG.",
+    longDescription: "Implemented a full DCT-based image compression pipeline from scratch in Go: separable 2D transform, JPEG quantization, and Huffman coding. Applied a custom 20% tighter DC quantization step and per-image adaptive Huffman encoding over JPEG's static tables. Parallelised block-level DCT/quantization across all CPU cores via a goroutine worker pool and precomputed cosine lookup table, reducing encode time from 800 ms to 40 ms on 1080p images.",
+    technologies: ["Go", "DCT", "Huffman Coding", "REST API", "Docker"],
+    image: "🗜️",
+    category: "Systems / Algorithms",
+    year: "2026",
+    status: "Completed",
+    features: [
+      "48.3× compression ratio at PSNR 33.77 dB / SSIM 0.9924",
+      "4% smaller output than Go stdlib JPEG at identical quality",
+      "2.4× speedup via precomputed cosine lookup table",
+      "Goroutine worker pool for parallel block processing",
+      "REST benchmark endpoint vs Go stdlib, Python PIL, OpenCV"
+    ],
+    githubUrl: "https://github.com/203SHASHANK/ImageCompressor-DCT",
+    liveUrl: "#",
+    screenshots: []
+  },
+  {
+    id: 3,
+    title: "Yogavana Ayurpharmacy",
+    description: "Full-stack e-commerce backend for an Ayurvedic pharmacy with product catalog, disease-specific remedy mapping, Razorpay payments, and live CI/CD deployment.",
+    longDescription: "Engineered a production-grade e-commerce backend using FastAPI and MongoDB covering product catalog, disease-specific Ayurvedic remedy mapping, cart management, Razorpay payment gateway, appointment booking, and inventory tracking. Integrated AWS S3 for scalable product media storage and designed RESTful APIs consumed by a Next.js frontend. Automated CI/CD pipeline with Docker and Jenkins for containerised build, test, and deployment workflows.",
+    technologies: ["FastAPI", "MongoDB", "AWS S3", "Razorpay", "Next.js", "Docker", "Jenkins"],
+    image: "🌿",
+    category: "E-Commerce / Backend",
+    year: "2026",
+    status: "Live",
+    features: [
+      "Disease-specific Ayurvedic remedy mapping",
+      "Razorpay payment gateway integration",
+      "AWS S3 for scalable product media storage",
+      "Appointment booking & inventory tracking",
+      "CI/CD pipeline with Docker & Jenkins"
+    ],
+    githubUrl: "#",
+    liveUrl: "https://yogavanaayurpharmacy.com/products",
+    screenshots: []
+  },
+  {
+    id: 4,
+    title: "Kafka-Learning",
+    description: "Production-ready Kafka client in Go covering 11 patterns end-to-end: consumer groups, idempotent producer, Dead Letter Queue, exactly-once semantics, and high-throughput async benchmarking.",
+    longDescription: "Built a production-ready Kafka client in Go using IBM/sarama: sync/async producers with snappy compression and batching, consumer groups with auto-rebalance, manual offset commits, and graceful shutdown. Covered 11 patterns end-to-end including consumer groups, idempotent producer, Dead Letter Queue with exponential-backoff retry, exactly-once semantics via Kafka transactions, and high-throughput async benchmarking. Deployed a 3-broker KRaft cluster with Prometheus + Grafana monitoring for consumer lag, throughput, and produce-error alerting.",
+    technologies: ["Go", "Apache Kafka", "sarama", "Docker", "Prometheus", "Grafana", "KRaft"],
+    image: "📨",
+    category: "Systems / Streaming",
+    year: "2025",
+    status: "Completed",
+    features: [
+      "11 Kafka patterns end-to-end",
+      "Exactly-once semantics via Kafka transactions",
+      "Dead Letter Queue with exponential-backoff retry",
+      "3-broker KRaft cluster deployment",
+      "Prometheus + Grafana monitoring for lag & throughput"
+    ],
+    githubUrl: "https://github.com/203SHASHANK/Kafka-Learning",
+    liveUrl: "#",
+    screenshots: []
+  },
+  {
+    id: 5,
+    title: "GoPacketSniffer",
+    description: "Network traffic analyzer built from scratch using Linux AF_PACKET raw sockets with <0.1% packet loss at 1 Gbps and 335 ns/packet full-decode latency.",
+    longDescription: "Built a packet capture tool from scratch using Linux AF_PACKET raw sockets, decoding Ethernet/IPv4/TCP/UDP headers with less than 0.1% packet loss at 1 Gbps. Displays real-time protocol distribution, bandwidth metrics, and top talkers. Implemented concurrent packet processing with goroutine worker pools: dedicated capture goroutine, parallel parsers, and async display — tracks active TCP flows and detects HTTP traffic patterns. Achieved 335 ns/packet full-decode latency via sync.Pool (22% faster, 31% fewer allocations) and zero-alloc ring buffer; 2.9M pps theoretical throughput gives 35× headroom over a saturated 1 Gbps link.",
+    technologies: ["Go", "AF_PACKET", "Raw Sockets", "TCP/IP", "Linux Networking"],
+    image: "🕵️",
+    category: "Systems / Networking",
+    year: "2026",
+    status: "Completed",
+    features: [
+      "<0.1% packet loss at 1 Gbps",
+      "335 ns/packet full-decode latency",
+      "2.9M pps theoretical throughput (35× headroom)",
+      "sync.Pool: 22% faster, 31% fewer allocations",
+      "Real-time protocol distribution & top talkers"
+    ],
+    githubUrl: "https://github.com/203SHASHANK/gopacketsniffer",
+    liveUrl: "#",
+    screenshots: []
+  },
+  {
+    id: 6,
     title: "Credit Card Fraud Detection System",
     description: "Advanced ML system using ANN, RNN, and GRU algorithms achieving 99.9% accuracy in fraud detection.",
     longDescription: "Developed and compared multiple deep learning models (ANN, RNN, GRU) to identify fraudulent transactions. Applied data mining and machine learning techniques on large datasets to minimize false positives and maximize detection rates.",
@@ -74,7 +180,7 @@ export const projects = [
     screenshots: []
   },
   {
-    id: 2,
+    id: 7,
     title: "Automated Irrigation System",
     description: "IoT-based system with NodeMCU, sensors, and Blynk app for smart farming and resource management.",
     longDescription: "Utilized NodeMCU as a central control unit to automate irrigation. Integrated soil moisture, temperature, humidity, and light sensors to collect real-time data and optimize water usage via the Blynk app.",
@@ -94,7 +200,7 @@ export const projects = [
     screenshots: []
   },
   {
-    id: 3,
+    id: 8,
     title: "Breast Cancer Prediction - Federated Learning",
     description: "Privacy-preserving ML system using federated learning for medical diagnosis with data security.",
     longDescription: "Developed a decentralized machine learning system that trains models on local data sources without sharing raw sensitive medical information, ensuring HIPAA-level privacy and security.",
@@ -114,7 +220,7 @@ export const projects = [
     screenshots: []
   },
   {
-    id: 4,
+    id: 9,
     title: "AR Home Decorator",
     description: "Augmented Reality app for virtual furniture placement using Unity3D with real-time tracking.",
     longDescription: "Developed an immersive AR application using Unity3D and AR Foundation. Implemented real-time 3D model placement, lighting estimation, and an intuitive UI for home design visualization.",
@@ -131,28 +237,6 @@ export const projects = [
     ],
     githubUrl: "https://github.com/203SHASHANK/Augmented-Reality---Home-Decorator",
     liveUrl: "#",
-    screenshots: []
-  },
-  {
-    id: 5,
-    title: "CareKonnect HMS",
-    description: "ABDM-Certified (M1-M4) Hospital Management System featuring an integrated OPD suite and FHIR-based interoperability.",
-    longDescription: "A comprehensive healthcare platform providing a full OPD suite including facility registration, appointment scheduling, queue management, and electronic prescriptions. Successfully integrated with the national ABHA portal across all four milestones, ensuring high standards of data security and interoperability using HL7 FHIR standards.",
-    technologies: ["Go", "Fiber", "Microservices", "FHIR", "Kafka", "ABDM APIs", "MongoDB"],
-    image: "🏥",
-    category: "HealthTech / Backend",
-    year: "2024",
-    status: "Active / Certified",
-    features: [
-      "ABDM M1-M4 National Certification",
-      "HL7 FHIR Data Interoperability",
-      "10+ Microservices Architecture",
-      "Automated OPD/IPD Billing Suite",
-      "Professional & Facility Registries",
-      "Patient Lifecycle Management"
-    ],
-    githubUrl: "#",
-    liveUrl: "https://carekonnect.in/",
     screenshots: []
   }
 ];
